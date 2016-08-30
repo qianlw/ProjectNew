@@ -5,7 +5,6 @@ using System.Text;
 using Epoint.Crm.Contract;
 using Epoint.Crm.DAL;
 using Epoint.Framework.Utility;
-using System.Data.Objects;
 using Epoint.Framework.Contract;
 using EntityFramework.Extensions;
 using Epoint.Core.Cache;

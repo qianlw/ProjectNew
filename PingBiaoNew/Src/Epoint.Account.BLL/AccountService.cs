@@ -5,11 +5,11 @@ using System.Text;
 using Epoint.Account.Contract;
 using Epoint.Account.DAL;
 using Epoint.Framework.Utility;
-using System.Data.Objects;
 using Epoint.Framework.Contract;
 using EntityFramework.Extensions;
 using Epoint.Core.Cache;
 using Epoint.Core.Config;
+using System.Data.Entity;
 
 namespace Epoint.Account.BLL
 {
@@ -26,7 +26,7 @@ namespace Epoint.Account.BLL
                 using (var dbContext = new AccountDbContext())
                 {
                     //如果有超时的，启动超时处理
-                    var timeoutList = dbContext.FindAll<LoginInfo>(p => EntityFunctions.DiffMinutes(DateTime.Now, p.LastAccessTime) > _UserLoginTimeoutMinutes);
+                    var timeoutList = dbContext.FindAll<LoginInfo>(p => DbFunctions.DiffMinutes(DateTime.Now, p.LastAccessTime) > _UserLoginTimeoutMinutes);
                     if (timeoutList.Count > 0)
                     {
                         foreach (var li in timeoutList)

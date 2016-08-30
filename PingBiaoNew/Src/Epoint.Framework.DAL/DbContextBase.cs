@@ -37,7 +37,7 @@ namespace Epoint.Framework.DAL
         {
             var set = this.Set<T>();
             set.Attach(entity);
-            this.Entry<T>(entity).State = EntityState.Modified;
+            this.Entry<T>(entity).State = System.Data.Entity.EntityState.Modified;
             this.SaveChanges();
 
             return entity;
@@ -52,7 +52,7 @@ namespace Epoint.Framework.DAL
 
         public void Delete<T>(T entity) where T : ModelBase
         {
-            this.Entry<T>(entity).State = EntityState.Deleted;
+            this.Entry<T>(entity).State = System.Data.Entity.EntityState.Deleted;
             this.SaveChanges();
         }
 
@@ -89,7 +89,7 @@ namespace Epoint.Framework.DAL
             if (this.AuditLogger == null)
                 return;
 
-            foreach (var dbEntry in this.ChangeTracker.Entries<ModelBase>().Where(p => p.State == EntityState.Added || p.State == EntityState.Deleted || p.State == EntityState.Modified))
+            foreach (var dbEntry in this.ChangeTracker.Entries<ModelBase>().Where(p => p.State == System.Data.Entity.EntityState.Added || p.State == System.Data.Entity.EntityState.Deleted || p.State == System.Data.Entity.EntityState.Modified))
             {
                 var auditableAttr = dbEntry.Entity.GetType().GetCustomAttributes(typeof(AuditableAttribute), false).SingleOrDefault() as AuditableAttribute;
                 if (auditableAttr == null)
