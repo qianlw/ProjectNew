@@ -252,8 +252,9 @@ namespace Epoint.Account.BLL
 
                     //清除验证码大于2分钟还没请求的
                     var expiredTime = DateTime.Now.AddMinutes(-2);
-                    dbContext.VerifyCodes.Where(v => v.CreateTime < expiredTime).Delete();
-
+                    //原版本
+                    //dbContext.VerifyCodes.Where(v => v.CreateTime < expiredTime).Delete();
+                    dbContext.VerifyCodes.Where(v => v.CreateTime < expiredTime).ToList().ForEach(a => { dbContext.VerifyCodes.Remove(a); dbContext.SaveChanges(); }); ;
                     return true;
                 }
                 else
