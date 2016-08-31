@@ -9,6 +9,7 @@
 
 namespace Epoint.PingBiao.DAL
 {
+    using Epoint.PingBiao.Contract;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;

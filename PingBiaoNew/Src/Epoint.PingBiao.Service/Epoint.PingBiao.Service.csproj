@@ -30,7 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,8 +48,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BaseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Service.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Service.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Service.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Epoint.Framework.Contract\Epoint.Framework.Contract.csproj">
+      <Project>{11214d97-f23c-4e16-aa12-ecd824454744}</Project>
+      <Name>Epoint.Framework.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epoint.Framework.DAL\Epoint.Framework.DAL.csproj">
+      <Project>{d988d0da-99c9-4bb6-98bb-4c0526f6f524}</Project>
+      <Name>Epoint.Framework.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epoint.Framework.Utility\Epoint.Framework.Utility.csproj">
+      <Project>{9f519ef8-800f-40cb-9545-9aeadf0f387d}</Project>
+      <Name>Epoint.Framework.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epoint.PingBiao.Contract\Epoint.PingBiao.Contract.csproj">
+      <Project>{b35b20c7-ed37-4ade-a246-3649daf7314b}</Project>
+      <Name>Epoint.PingBiao.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epoint.PingBiao.DAL\Epoint.PingBiao.DAL.csproj">
+      <Project>{d649745b-1634-458d-810a-0ba547045612}</Project>
+      <Name>Epoint.PingBiao.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epoint.PingBiao.IService\Epoint.PingBiao.IService.csproj">
+      <Project>{3dce3993-9194-4fb5-bfcd-e835f0ee3921}</Project>
+      <Name>Epoint.PingBiao.IService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

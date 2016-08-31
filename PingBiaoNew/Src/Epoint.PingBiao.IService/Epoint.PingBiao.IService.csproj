@@ -39,8 +39,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="IBaseService.cs" />
+    <Compile Include="IService.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IService.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IService.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Epoint.Framework.Contract\Epoint.Framework.Contract.csproj">
+      <Project>{11214d97-f23c-4e16-aa12-ecd824454744}</Project>
+      <Name>Epoint.Framework.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epoint.PingBiao.Contract\Epoint.PingBiao.Contract.csproj">
+      <Project>{b35b20c7-ed37-4ade-a246-3649daf7314b}</Project>
+      <Name>Epoint.PingBiao.Contract</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
