@@ -136,10 +136,5 @@ namespace Epoint.PingBiao.Contract
         public string ZBRRemark { get; set; }
         public string XunBiao_Status { get; set; }
         public string IsEcoSucceed { get; set; }
-        public Nullable<System.DateTime> UPR_DATE_SXF_Eco { get; set; }
-        public string isjiemi_SXF_Eco { get; set; }
-        public string DecrTB_UnitName_SXF_Eco { get; set; }
-        public string IsUseDisk_SXF_Eco { get; set; }
-        public Nullable<System.DateTime> DecrTBJieMi_Date_SXF_Eco { get; set; }
     }
 }

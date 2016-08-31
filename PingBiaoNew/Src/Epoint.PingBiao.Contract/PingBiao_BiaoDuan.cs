@@ -170,12 +170,5 @@ namespace Epoint.PingBiao.Contract
         public Nullable<System.DateTime> XunBiaoEndDate { get; set; }
         public string XunBiaoEndOperator { get; set; }
         public string IsLiuBiao { get; set; }
-        public string IsUploadFile { get; set; }
-        public Nullable<System.DateTime> DecrZB_Date_SXF_Eco { get; set; }
-        public Nullable<System.DateTime> KaiBiaoEndTime_SXF_Eco { get; set; }
-        public string KaiBiaoEndOperator_SXF_Eco { get; set; }
-        public string YiChangQK_SXF_Eco { get; set; }
-        public string IsEconMarkConfirm { get; set; }
-        public string YiFaZhaoBiaoQk { get; set; }
     }
 }

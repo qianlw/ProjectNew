@@ -30,11 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -66,6 +68,27 @@
     <Compile Include="PingBiao_BiaoDuan.cs">
       <DependentUpon>PB.tt</DependentUpon>
     </Compile>
+    <Compile Include="PingBiao_BiaoDuanExt.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PingBiao_BuZhouBack.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PingBiao_Eval_BaojiaMark.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PingBiao_Eval_BiaoJiaBJB.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PingBiao_Eval_LastMark.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PingBiao_Eval_MeasureItem.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PingBiao_Eval_PingBiaoBF.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
     <Compile Include="PingBiao_KaiBiaoTouBiao.cs">
       <DependentUpon>PB.tt</DependentUpon>
     </Compile>
@@ -75,7 +98,49 @@
     <Compile Include="PingBiao_Pw_Mark.cs">
       <DependentUpon>PB.tt</DependentUpon>
     </Compile>
+    <Compile Include="PingBiao_TBInfoMx.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PingBiao_TB_Csxm1Mx.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PingBiao_TB_FywjMx.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PingBiao_TB_MeasureItem.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PingBiao_TB_OtherItem.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PingBiao_TB_QingDanItem.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PingBiao_TB_RcjhzMx.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PingBiao_ZB_CaiLiaoZGMX.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PingBiao_ZB_MeasureItem.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PingBiao_ZB_OtherItem.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PingBiao_ZB_QingDanItem.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PingBiao_ZB_RcjhzMx_.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PingBiao_ZhiXun.cs">
+      <DependentUpon>PB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="PB.edmx">
@@ -99,9 +164,6 @@
       <DependentUpon>PB.edmx</DependentUpon>
       <LastGenOutput>PB.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

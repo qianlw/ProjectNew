@@ -78,7 +78,5 @@ namespace Epoint.PingBiao.Contract
         public string PBTimes { get; set; }
         public string IP { get; set; }
         public string PWYJ { get; set; }
-        public string IsUploadFile { get; set; }
-        public Nullable<System.DateTime> UpdateTime { get; set; }
     }
 }
