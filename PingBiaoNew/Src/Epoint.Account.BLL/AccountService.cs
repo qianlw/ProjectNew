@@ -254,7 +254,7 @@ namespace Epoint.Account.BLL
                     var expiredTime = DateTime.Now.AddMinutes(-2);
                     //原版本
                     //dbContext.VerifyCodes.Where(v => v.CreateTime < expiredTime).Delete();
-                    dbContext.VerifyCodes.Where(v => v.CreateTime < expiredTime).ToList().ForEach(a => { dbContext.VerifyCodes.Remove(a); dbContext.SaveChanges(); }); ;
+                    dbContext.VerifyCodes.Where(v => v.CreateTime < expiredTime).ToList().ForEach(a => { dbContext.VerifyCodes.Remove(a); dbContext.SaveChanges(); }); 
                     return true;
                 }
                 else
