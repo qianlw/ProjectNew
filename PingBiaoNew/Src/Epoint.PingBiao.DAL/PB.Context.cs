@@ -9,12 +9,13 @@
 
 namespace Epoint.PingBiao.DAL
 {
-    using Epoint.PingBiao.Contract;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using Epoint.PingBiao.Contract;
+    using Epoint.Framework.DAL;
     
-    public partial class PBDbContext : DbContext
+    public partial class PBDbContext : DbContextBase
     {
         public PBDbContext()
             : base("name=PBDbContext")
