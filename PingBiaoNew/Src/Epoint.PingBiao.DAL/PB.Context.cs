@@ -14,18 +14,21 @@ namespace Epoint.PingBiao.DAL
     using System.Data.Entity.Infrastructure;
     using Epoint.PingBiao.Contract;
     using Epoint.Framework.DAL;
+    using Epoint.Core.Config;
+    using Epoint.Core.Log;
     
     public partial class PBDbContext : DbContextBase
     {
         public PBDbContext()
-            : base("name=PBDbContext")
+            : base(CachedConfigContext.Current.DaoConfig.PB, new LogDbContext())
         {
         }
     
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    Database.SetInitializer<PBDbContext>(null);
+        //    base.OnModelCreating(modelBuilder);
+        //}
     
         public virtual DbSet<PingBiao_BiaoDuan> PingBiao_BiaoDuan { get; set; }
         public virtual DbSet<PingBiao_BiaoDuanExt> PingBiao_BiaoDuanExt { get; set; }

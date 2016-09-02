@@ -11,7 +11,7 @@ namespace Epoint.Framework.Contract
         {
             CreateTime = DateTime.Now;
         }
-        
+
         public virtual int ID { get; set; }
         public virtual DateTime CreateTime { get; set; }
     }

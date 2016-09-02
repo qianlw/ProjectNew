@@ -67,11 +67,11 @@
       <Name>Epoint.Core.Cache</Name>
     </ProjectReference>
     <ProjectReference Include="..\Epoint.Core.Log\Epoint.Core.Log.csproj">
-      <Project>{8AE51EE2-67DB-4F57-98FE-CBB890C9A5A2}</Project>
+      <Project>{8ae51ee2-67db-4f57-98fe-cbb890c9a5a2}</Project>
       <Name>Epoint.Core.Log</Name>
     </ProjectReference>
     <ProjectReference Include="..\Epoint.Core.Service\Epoint.Core.Service.csproj">
-      <Project>{812C05FD-2BAA-4799-B0AB-2711781133BA}</Project>
+      <Project>{812c05fd-2baa-4799-b0ab-2711781133ba}</Project>
       <Name>Epoint.Core.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\Epoint.Core.Upload\Epoint.Core.Upload.csproj">
@@ -94,9 +94,9 @@
       <Project>{AA76F90E-2594-44C8-89D6-302A0C8757AD}</Project>
       <Name>Epoint.Framework.Web</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Epoint.OA.Contract\Epoint.OA.Contract.csproj">
-      <Project>{F6F83E95-5F65-410C-B49F-7763E2184251}</Project>
-      <Name>Epoint.OA.Contract</Name>
+    <ProjectReference Include="..\Epoint.PingBiao.IService\Epoint.PingBiao.IService.csproj">
+      <Project>{3dce3993-9194-4fb5-bfcd-e835f0ee3921}</Project>
+      <Name>Epoint.PingBiao.IService</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

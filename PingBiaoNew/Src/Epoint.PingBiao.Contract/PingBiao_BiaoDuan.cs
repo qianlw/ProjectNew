@@ -9,14 +9,17 @@
 
 namespace Epoint.PingBiao.Contract
 {
+    using Epoint.Framework.Contract;
     using System;
     using System.Collections.Generic;
-    
-    public partial class PingBiao_BiaoDuan
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class PingBiao_BiaoDuan 
     {
         public string BelongXiaQuCode { get; set; }
         public string OperateUserName { get; set; }
         public Nullable<System.DateTime> OperateDate { get; set; }
+        [Key]
         public int Row_ID { get; set; }
         public string YearFlag { get; set; }
         public string RowGuid { get; set; }

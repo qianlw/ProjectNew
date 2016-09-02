@@ -45,7 +45,7 @@ namespace Epoint.Account.Contract
 
 
         [EnumTitle("OA管理员工")]
-        OAManage_Staff = 401,
+        PBManage_Staff = 401,
 
         [EnumTitle("OA管理部门")]
         OAManage_Branch = 402,

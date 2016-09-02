@@ -9,6 +9,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Epoint.PingBiao.DAL;
 
 namespace Epoint.PingBiao.Service
 {
@@ -16,13 +17,13 @@ namespace Epoint.PingBiao.Service
     /// 业务父类
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class BaseService<T>  where T : class,new()
+    public class BaseService<T> where T : class,new()
     {
         //1.定义EF上下文
-        //Bid_PBEntities db = new Bid_PBEntities();
-        
+        PBDbContext PBDbContext = new PBDbContext();
+                
 
-        //2.定义增删改查       
+        //2.定义增删改查
 
         #region 1.0 新增 实体 +int Add(T model)
         /// <summary>
@@ -32,8 +33,8 @@ namespace Epoint.PingBiao.Service
         /// <returns></returns>
         public virtual int Add(T model)
         {
-            db.Set<T>().Add(model);
-            return db.SaveChanges();//保存成功后，会将自增的id设置给 model的 主键属性，并返回受影响行数
+            PBDbContext.Set<T>().Add(model);
+            return PBDbContext.SaveChanges();//保存成功后，会将自增的id设置给 model的 主键属性，并返回受影响行数
         }
         #endregion
 
@@ -45,9 +46,9 @@ namespace Epoint.PingBiao.Service
         /// <returns></returns>
         public virtual int Del(T model)
         {
-            db.Set<T>().Attach(model);
-            db.Set<T>().Remove(model);
-            return db.SaveChanges();
+            PBDbContext.Set<T>().Attach(model);
+            PBDbContext.Set<T>().Remove(model);
+            return PBDbContext.SaveChanges();
         }
         #endregion
 
@@ -60,15 +61,15 @@ namespace Epoint.PingBiao.Service
         public virtual int DelBy(Expression<Func<T, bool>> delWhere)
         {
             //3.1查询要删除的数据
-            List<T> listDeleting = db.Set<T>().Where(delWhere).ToList();
+            List<T> listDeleting = PBDbContext.Set<T>().Where(delWhere).ToList();
             //3.2将要删除的数据 用删除方法添加到 EF 容器中
             listDeleting.ForEach(u =>
             {
-                db.Set<T>().Attach(u);//先附加到 EF容器
-                db.Set<T>().Remove(u);//标识为 删除 状态
+                PBDbContext.Set<T>().Attach(u);//先附加到 EF容器
+                PBDbContext.Set<T>().Remove(u);//标识为 删除 状态
             });
             //3.3一次性 生成sql语句到数据库执行删除
-            return db.SaveChanges();
+            return PBDbContext.SaveChanges();
         }
         #endregion
 
@@ -84,7 +85,7 @@ namespace Epoint.PingBiao.Service
         public virtual int Modify(T model, params string[] proNames)
         {
             //4.1将 对象 添加到 EF中
-            DbEntityEntry entry = db.Entry<T>(model);
+            DbEntityEntry entry = PBDbContext.Entry<T>(model);
             //4.2先设置 对象的包装 状态为 Unchanged
             entry.State = EntityState.Unchanged;
             //4.3循环 被修改的属性名 数组
@@ -94,7 +95,7 @@ namespace Epoint.PingBiao.Service
                 entry.Property(proName).IsModified = true;
             }
             //4.4一次性 生成sql语句到数据库执行
-            return db.SaveChanges();
+            return PBDbContext.SaveChanges();
         }
         #endregion
 
@@ -109,7 +110,7 @@ namespace Epoint.PingBiao.Service
         public virtual int ModifyBy(T model, Expression<Func<T, bool>> whereLambda, params string[] modifiedProNames)
         {
             //4.1查询要修改的数据
-            List<T> listModifing = db.Set<T>().Where(whereLambda).ToList();
+            List<T> listModifing = PBDbContext.Set<T>().Where(whereLambda).ToList();
 
             //获取 实体类 类型对象
             Type t = typeof(T); // model.GetType();
@@ -146,7 +147,7 @@ namespace Epoint.PingBiao.Service
                 }
             }
             //4.4一次性 生成sql语句到数据库执行
-            return db.SaveChanges();
+            return PBDbContext.SaveChanges();
         }
         #endregion
 
@@ -158,7 +159,7 @@ namespace Epoint.PingBiao.Service
         /// <returns></returns>
         public virtual List<T> GetListBy(Expression<Func<T, bool>> whereLambda)
         {
-            return db.Set<T>().Where(whereLambda).ToList();
+            return PBDbContext.Set<T>().Where(whereLambda).ToList();
         }
         #endregion
 
@@ -172,7 +173,7 @@ namespace Epoint.PingBiao.Service
         /// <returns></returns>
         public virtual List<T> GetListBy<TKey>(Expression<Func<T, bool>> whereLambda, Expression<Func<T, TKey>> orderLambda)
         {
-            return db.Set<T>().Where(whereLambda).OrderBy(orderLambda).ToList();
+            return PBDbContext.Set<T>().Where(whereLambda).OrderBy(orderLambda).ToList();
         }
         #endregion
 
@@ -188,7 +189,7 @@ namespace Epoint.PingBiao.Service
         public List<T> GetPagedList<TKey>(int pageIndex, int pageSize, Expression<Func<T, bool>> whereLambda, Expression<Func<T, TKey>> orderBy)
         {
             // 分页 一定注意： Skip 之前一定要 OrderBy
-            return db.Set<T>().Where(whereLambda).OrderBy(orderBy).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+            return PBDbContext.Set<T>().Where(whereLambda).OrderBy(orderBy).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
         }
         #endregion
 

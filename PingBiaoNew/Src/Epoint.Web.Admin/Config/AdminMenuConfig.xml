@@ -17,11 +17,11 @@
       </AdminMenuArray>
     </AdminMenuGroup>
 
-    <AdminMenuGroup name="OA管理" icon="icon-sitemap">
+    <AdminMenuGroup name="评标" icon="icon-sitemap">
       <AdminMenuArray>
-        <AdminMenu name="员工管理" url="/OA/Staff/Index" info="添加修改删除员工信息" permission="OAManage_Staff" />
-        <AdminMenu name="部门管理" url="/OA/Branch/Index" info="添加修改删除部门信息" permission="OAManage_Branch" />
-        <AdminMenu name="组织结构管理" url="/OA/Org/Index" info="管理部门从属关系及员工所属部门" permission="OAManage_Org" />
+        <AdminMenu name="项目管理" url="/PB/BiaoDuan/Index" info="添加修改删除项目信息" permission="PBManage_Staff" />
+        <AdminMenu name="部门管理" url="/PB/BiaoDuan/Index" info="添加修改删除部门信息" permission="PBManage_Staff" />
+        <AdminMenu name="组织结构管理" url="/PB/BiaoDuan/Index" info="管理部门从属关系及员工所属部门" permission="OAManage_Org" />
       </AdminMenuArray>
     </AdminMenuGroup>
 

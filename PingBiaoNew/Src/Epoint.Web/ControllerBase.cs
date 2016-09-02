@@ -8,7 +8,7 @@ using Epoint.Framework.Contract;
 using Epoint.Core.Log;
 using Epoint.Cms.Contract;
 using Epoint.Crm.Contract;
-using Epoint.OA.Contract;
+using Epoint.PingBiao.IService;
 
 namespace Epoint.Web
 {
@@ -38,13 +38,14 @@ namespace Epoint.Web
             }
         }
 
-        public virtual IOAService OAService
+        public virtual IPingBiao_BiaoDuan PingBiao_BiaoDuanService
         {
             get
             {
-                return ServiceContext.Current.OAService;
+                return ServiceContext.Current.PingBiao_BiaoDuanService;
             }
         }
+                
 
         protected override void LogException(Exception exception, 
             WebExceptionContext exceptionContext = null)

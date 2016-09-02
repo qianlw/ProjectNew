@@ -20,6 +20,7 @@ namespace Epoint.Core.Config
         public String Cms { get; set; }
         public String Crm { get; set; }
         public String OA { get; set; }
+        public String PB { get; set; }
         #endregion
     }
 }

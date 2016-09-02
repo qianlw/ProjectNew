@@ -11,6 +11,7 @@ namespace Epoint.PingBiao.Contract
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class PingBiao_TB_FywjMx
     {
@@ -33,6 +34,7 @@ namespace Epoint.PingBiao.Contract
         public string BelongXiaQuCode { get; set; }
         public string OperateUserName { get; set; }
         public Nullable<System.DateTime> OperateDate { get; set; }
+        [Key]
         public int Row_ID { get; set; }
         public string YearFlag { get; set; }
         public string RowGuid { get; set; }

@@ -5,7 +5,7 @@ using Epoint.Core.Cache;
 using Epoint.Core.Service;
 using Epoint.Cms.Contract;
 using Epoint.Crm.Contract;
-using Epoint.OA.Contract;
+using Epoint.PingBiao.IService;
 
 namespace Epoint.Web
 {
@@ -43,12 +43,14 @@ namespace Epoint.Web
             }
         }
 
-        public IOAService OAService
+        public IPingBiao_BiaoDuan PingBiao_BiaoDuanService
         {
             get
             {
-                return ServiceHelper.CreateService<IOAService>();
+                return ServiceHelper.CreateService<IPingBiao_BiaoDuan>();
             }
         }
+
+        
     }
 }

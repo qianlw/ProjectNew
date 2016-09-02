@@ -65,10 +65,6 @@
       <Project>{D988D0DA-99C9-4BB6-98BB-4C0526F6F524}</Project>
       <Name>Epoint.Framework.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Epoint.OA.Contract\Epoint.OA.Contract.csproj">
-      <Project>{F6F83E95-5F65-410C-B49F-7763E2184251}</Project>
-      <Name>Epoint.OA.Contract</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

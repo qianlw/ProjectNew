@@ -83,10 +83,8 @@
     <Compile Include="Areas\Crm\Controllers\AnalysisController.cs" />
     <Compile Include="Areas\Crm\Controllers\VisitRecordController.cs" />
     <Compile Include="Areas\Crm\CrmAreaRegistration.cs" />
-    <Compile Include="Areas\OA\Controllers\BranchController.cs" />
-    <Compile Include="Areas\OA\Controllers\OrgController.cs" />
-    <Compile Include="Areas\OA\Controllers\StaffController.cs" />
-    <Compile Include="Areas\OA\OAAreaRegistration.cs" />
+    <Compile Include="Areas\PB\Controllers\BiaoDuanController.cs" />
+    <Compile Include="Areas\PB\PBAreaRegistration.cs" />
     <Compile Include="Common\AdminCookieContext.cs" />
     <Compile Include="Common\AdminUserContext.cs" />
     <Compile Include="Common\AdminControllerBase.cs" />
@@ -1258,6 +1256,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\PB\Views\Shared\" />
     <Folder Include="Assets\jquery-file-upload\server\php\files\thumbnail\" />
     <Folder Include="Models\" />
     <Folder Include="Upload\" />
@@ -1286,12 +1285,8 @@
     <Content Include="Areas\Crm\Views\VisitRecord\Edit.cshtml" />
     <Content Include="Areas\Crm\Views\VisitRecord\Index.cshtml" />
     <Content Include="Areas\Crm\Views\VisitRecord\AreaSelect.cshtml" />
-    <Content Include="Areas\OA\Views\Web.config" />
-    <Content Include="Areas\OA\Views\Branch\Edit.cshtml" />
-    <Content Include="Areas\OA\Views\Branch\Index.cshtml" />
-    <Content Include="Areas\OA\Views\Staff\Edit.cshtml" />
-    <Content Include="Areas\OA\Views\Staff\Index.cshtml" />
-    <Content Include="Areas\OA\Views\Org\Index.cshtml" />
+    <Content Include="Areas\PB\Views\Web.config" />
+    <Content Include="Areas\PB\Views\BiaoDuan\Index.cshtml" />
     <None Include="Assets\bootstrap-colorpicker\less\colorpicker.less" />
     <None Include="Assets\bootstrap-datepicker\less\datepicker.less" />
     <None Include="Assets\bootstrap-daterangepicker\README.md" />
@@ -1537,9 +1532,17 @@
       <Project>{AA76F90E-2594-44C8-89D6-302A0C8757AD}</Project>
       <Name>Epoint.Framework.Web</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Epoint.OA.Contract\Epoint.OA.Contract.csproj">
-      <Project>{F6F83E95-5F65-410C-B49F-7763E2184251}</Project>
-      <Name>Epoint.OA.Contract</Name>
+    <ProjectReference Include="..\Epoint.PingBiao.Contract\Epoint.PingBiao.Contract.csproj">
+      <Project>{b35b20c7-ed37-4ade-a246-3649daf7314b}</Project>
+      <Name>Epoint.PingBiao.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epoint.PingBiao.IService\Epoint.PingBiao.IService.csproj">
+      <Project>{3dce3993-9194-4fb5-bfcd-e835f0ee3921}</Project>
+      <Name>Epoint.PingBiao.IService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epoint.PingBiao.Service\Epoint.PingBiao.Service.csproj">
+      <Project>{18c66d3f-5457-4798-87c6-ecc60ada2de1}</Project>
+      <Name>Epoint.PingBiao.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\Epoint.Web\Epoint.Web.csproj">
       <Project>{E905FFE6-A1D5-48B2-81B7-8E8D4BC5F895}</Project>

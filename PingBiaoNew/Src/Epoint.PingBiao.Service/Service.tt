@@ -34,7 +34,7 @@ foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e =>
     //BeginNamespace(namespaceName, code);
     
 #>
-	public partial class <#=entity.Name#> : BaseService<<#=entity.Name#>>,I<#=entity.Name#>
+	public partial class <#=entity.Name#> : BaseService<Epoint.PingBiao.Contract.<#=entity.Name#>>,I<#=entity.Name#>
     {
 		
     }
