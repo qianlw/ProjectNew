@@ -11,7 +11,7 @@ namespace Epoint.Cms.DAL
     public class CmsDbContext : DbContextBase
     {
         public CmsDbContext()
-            : base(CachedConfigContext.Current.DaoConfig.Cms, new LogDbContext())
+            : base("Cms", new LogDbContext())
         {
         }
 

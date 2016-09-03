@@ -1,12 +1,13 @@
 namespace Epoint.PingBiao.Contract
 {
+    using Epoint.Framework.Contract;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class PingBiao_Menu_Category
+    public partial class PingBiao_Menu_Category : ModelBase
     {
         [StringLength(50)]
         public string IsOpen { get; set; }
@@ -84,7 +85,7 @@ namespace Epoint.PingBiao.Contract
         [StringLength(50)]
         public string PBBF { get; set; }
 
-        [Key]
+        
         public int Row_ID { get; set; }
 
         [StringLength(2000)]

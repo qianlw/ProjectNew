@@ -1,5 +1,6 @@
 namespace Epoint.PingBiao.Contract
 {
+    using Epoint.Framework.Contract;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -7,7 +8,7 @@ namespace Epoint.PingBiao.Contract
     using System.Data.Entity.Spatial;
 
     [Table("PingBiao_PFDLastMark ")]
-    public partial class PingBiao_PFDLastMark
+    public partial class PingBiao_PFDLastMark : ModelBase
     {
         [StringLength(50)]
         public string BiaoDuanGuid { get; set; }
@@ -35,7 +36,7 @@ namespace Epoint.PingBiao.Contract
 
         public DateTime? OperateDate { get; set; }
 
-        [Key]
+        
         public int Row_ID { get; set; }
 
         [StringLength(4)]

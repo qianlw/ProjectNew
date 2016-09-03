@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JSGC_PB_EcoFile.cs" />
+    <Compile Include="ModelBases.cs" />
     <Compile Include="PingBiao_Answer.cs" />
     <Compile Include="PingBiao_Attach_Lock.cs" />
     <Compile Include="PingBiao_BaoJiaHistroy.cs" />

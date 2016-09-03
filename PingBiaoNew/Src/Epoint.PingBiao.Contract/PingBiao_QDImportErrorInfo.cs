@@ -1,14 +1,15 @@
 namespace Epoint.PingBiao.Contract
 {
+    using Epoint.Framework.Contract;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class PingBiao_QDImportErrorInfo
+    public partial class PingBiao_QDImportErrorInfo : ModelBase
     {
-        [Key]
+        
         public int Row_ID { get; set; }
 
         [StringLength(255)]

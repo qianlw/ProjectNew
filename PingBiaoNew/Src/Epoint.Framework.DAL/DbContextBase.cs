@@ -19,8 +19,8 @@ namespace Epoint.Framework.DAL
         {
             //var objectContext = (this as IObjectContextAdapter).ObjectContext;
             //objectContext.CommandTimeout = 500;
-
-            this.Database.Connection.ConnectionString = connectionString;
+            string conn = System.Configuration.ConfigurationManager.ConnectionStrings[connectionString].ToString();
+            this.Database.Connection.ConnectionString = conn;
             this.Configuration.LazyLoadingEnabled = false;
             this.Configuration.ProxyCreationEnabled = false;
         }

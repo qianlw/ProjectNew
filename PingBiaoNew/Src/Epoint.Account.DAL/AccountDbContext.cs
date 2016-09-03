@@ -11,7 +11,7 @@ namespace Epoint.Account.DAL
     public class AccountDbContext : DbContextBase
     {
         public AccountDbContext()
-            : base(CachedConfigContext.Current.DaoConfig.Account, new LogDbContext())
+            : base("Account", new LogDbContext())
         {
         }
 

@@ -1,12 +1,13 @@
 namespace Epoint.PingBiao.Contract
 {
+    using Epoint.Framework.Contract;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class PingBiao_QtXinXi
+    public partial class PingBiao_QtXinXi : ModelBase
     {
         [StringLength(50)]
         public string BelongXiaQuCode { get; set; }
@@ -15,8 +16,7 @@ namespace Epoint.PingBiao.Contract
         public string OperateUserName { get; set; }
 
         public DateTime? OperateDate { get; set; }
-
-        [Key]
+        
         public int Row_ID { get; set; }
 
         [StringLength(4)]

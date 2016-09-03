@@ -1,12 +1,13 @@
 namespace Epoint.PingBiao.Contract
 {
+    using Epoint.Framework.Contract;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class PingBiao_TB_QdFb
+    public partial class PingBiao_TB_QdFb : ModelBase
     {
         [StringLength(50)]
         public string BelongXiaQuCode { get; set; }
@@ -16,7 +17,7 @@ namespace Epoint.PingBiao.Contract
 
         public DateTime? OperateDate { get; set; }
 
-        [Key]
+        
         [Column(Order = 0)]
         public int Row_ID { get; set; }
 
@@ -29,7 +30,7 @@ namespace Epoint.PingBiao.Contract
         [StringLength(50)]
         public string Xh { get; set; }
 
-        [Key]
+        
         [Column(Order = 1)]
         [StringLength(500)]
         public string Mc { get; set; }
@@ -46,7 +47,7 @@ namespace Epoint.PingBiao.Contract
         [StringLength(50)]
         public string DanWeiGuid { get; set; }
 
-        [Key]
+        
         [Column(Order = 2)]
         [StringLength(255)]
         public string DanWeiGCName { get; set; }

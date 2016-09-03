@@ -12,7 +12,7 @@ namespace Epoint.PingBiao.DAL
     public partial class PBDbContext : DbContextBase
     {
         public PBDbContext()
-            : base(CachedConfigContext.Current.DaoConfig.PB, new LogDbContext())
+            : base("PB", new LogDbContext())
         {
         }
 
@@ -211,1581 +211,1586 @@ namespace Epoint.PingBiao.DAL
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<PingBiao_BiaoDuan>()
-                .Property(e => e.TuiJianPwFzrNo)
-                .HasPrecision(2, 0);
-
-            modelBuilder.Entity<PingBiao_BiaoDuan>()
-                .Property(e => e.ControlPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Answer>()
-                .Property(e => e.AnswerMark)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Evak_PbDetail>()
-                .Property(e => e.MinDF)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Evak_PbDetail>()
-                .Property(e => e.MaxDF)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_BaojiaMark>()
-                .Property(e => e.ChaElv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_Eval_BaojiaMark>()
-                .Property(e => e.DlxmPoint)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_BaojiaMark>()
-                .Property(e => e.NoDlxmPoint)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_BasePrice>()
-                .Property(e => e.TotalPrice_BiaoDi)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_BasePrice>()
-                .Property(e => e.UnitPrice_Avg)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_BasePrice>()
-                .Property(e => e.TotalPrice_Avg)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_BasePrice>()
-                .Property(e => e.UnitPrice_CiLeast)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_BasePrice>()
-                .Property(e => e.TotalPrice_CiLeast)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_BasePrice>()
-                .Property(e => e.UnitPrice_Least)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_BasePrice>()
-                .Property(e => e.TotalPrice_Least)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_BasePrice>()
-                .Property(e => e.UnitPrice_Max)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_BasePrice>()
-                .Property(e => e.TotalPrice_Max)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_BasePrice>()
-                .Property(e => e.UnitPrice_BiaoDi)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_BasePrice_MeasureItem>()
-                .Property(e => e.TotalPrice_Avg)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_BasePrice_MeasureItem>()
-                .Property(e => e.TotalPrice_BiaoDi)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_BasePrice_MeasureItem>()
-                .Property(e => e.TotalPrice_CiLeast)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_BasePrice_MeasureItem>()
-                .Property(e => e.TotalPrice_Least)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_BiaoJiaBJB>()
-                .Property(e => e.BiaoDiTotal)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_CSFX>()
-                .Property(e => e.JE)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_CSFX>()
-                .Property(e => e.BiaoDiUnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_CSFX>()
-                .Property(e => e.BiaoDi_ChaE)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_CSFX>()
-                .Property(e => e.BiaoDi_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_Eval_CSFX>()
-                .Property(e => e.AvgUnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_CSFX>()
-                .Property(e => e.Avg_ChaE)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_CSFX>()
-                .Property(e => e.Avg_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_Eval_CSFX>()
-                .Property(e => e.LeastUnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_CSFX>()
-                .Property(e => e.Least_ChaE)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_CSFX>()
-                .Property(e => e.Least_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_Eval_CSFX>()
-                .Property(e => e.CiLeastUnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_CSFX>()
-                .Property(e => e.CiLeast_ChaE)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_CSFX>()
-                .Property(e => e.CiLeast_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_Eval_DiYuCBJPD>()
-                .Property(e => e.ZongHeUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_DiYuCBJPD>()
-                .Property(e => e.Quantity)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_DiYuCBJPD>()
-                .Property(e => e.TotalPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_DiYuCBJPD>()
-                .Property(e => e.TouBiaoPriceMax)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_DiYuCBJPD>()
-                .Property(e => e.ChaE)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_DlxmAccordCheck>()
-                .Property(e => e.TiaoZhengTotal)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
-                .Property(e => e.JE)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
-                .Property(e => e.BiaoDiUnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
-                .Property(e => e.BiaoDi_ChaE)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
-                .Property(e => e.BiaoDi_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
-                .Property(e => e.AvgUnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
-                .Property(e => e.Avg_ChaE)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
-                .Property(e => e.Avg_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
-                .Property(e => e.LeastUnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
-                .Property(e => e.Least_ChaE)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
-                .Property(e => e.Least_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
-                .Property(e => e.CiLeastUnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
-                .Property(e => e.CiLeast_ChaE)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
-                .Property(e => e.CiLeast_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_Eval_FywjMxMathErrorTZ>()
-                .Property(e => e.Je)
-                .HasPrecision(18, 0);
-
-            modelBuilder.Entity<PingBiao_Eval_FywjMxMathErrorTZ>()
-                .Property(e => e.Zgj)
-                .HasPrecision(18, 0);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei1)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei2)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei3)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei4)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei5)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei6)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei7)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei8)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei9)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei10)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei11)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei12)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei13)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei14)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei15)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei16)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei17)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei18)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei19)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei20)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei21)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
-                .Property(e => e.Guifei22)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiList>()
-                .Property(e => e.Je)
-                .HasPrecision(18, 0);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiList>()
-                .Property(e => e.Fl)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei1)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei2)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei3)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei4)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei5)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei6)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei7)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei8)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei9)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei10)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei11)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei12)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei13)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei14)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei15)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei16)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei17)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei18)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei19)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
-                .Property(e => e.Guifei20)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_MathErrors>()
-                .Property(e => e.Quantity)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MathErrors>()
-                .Property(e => e.UnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MathErrors>()
-                .Property(e => e.TotalPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MathErrors>()
-                .Property(e => e.CalTotalPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MathErrors>()
-                .Property(e => e.TiaoZhengPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MathErrors>()
-                .Property(e => e.OverheadUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MathErrors>()
-                .Property(e => e.Profit)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MathErrors>()
-                .Property(e => e.LaborUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MathErrors>()
-                .Property(e => e.MaterialUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MathErrors>()
-                .Property(e => e.MachineUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MathErrors>()
-                .Property(e => e.RiskUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MathErrorTZ>()
-                .Property(e => e.UnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MathErrorTZ>()
-                .Property(e => e.Quantity)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MathErrorTZ>()
-                .Property(e => e.TotalPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MathErrorTZ>()
-                .Property(e => e.CalTotalPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MathErrorTZ>()
-                .Property(e => e.TiaoZhengPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MeasureAccordCheck>()
-                .Property(e => e.TiaoZhengTotal)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MeasureItem>()
-                .Property(e => e.BiaoDi_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_Eval_MeasureItem>()
-                .Property(e => e.Least_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_Eval_MeasureItem>()
-                .Property(e => e.CiLeast_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_Eval_MeasureItem>()
-                .Property(e => e.Avg_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_Eval_MeasureItemBJ>()
-                .Property(e => e.HanLiang)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_Eval_MeasureItemBJ>()
-                .Property(e => e.Avg_ChaELV)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_Eval_MeasureItemBJ>()
-                .Property(e => e.Least_ChaE)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MeasureItemBJ>()
-                .Property(e => e.Least_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_Eval_MeasureItemBJ>()
-                .Property(e => e.CiLeastTotal)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MeasureItemBJ>()
-                .Property(e => e.CiDiLeast_ChaE)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_MeasureItemBJ>()
-                .Property(e => e.CiDiLeast_ChaELV)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_Eval_MeasureItemBJ>()
-                .Property(e => e.BiaoDi_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_Eval_MeasureItemBJ>()
-                .Property(e => e.MeasueTotal)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_OtherAccordCheck>()
-                .Property(e => e.TiaoZhengTotal)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_QingDanAccordCheck>()
-                .Property(e => e.TiaoZhengTotal)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
-                .Property(e => e.ZongHeUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
-                .Property(e => e.ZongHeUnitPrice_DB)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
-                .Property(e => e.ZongHeUnitPriceChaElv)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
-                .Property(e => e.OverHeadUnitPriceChaElv)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
-                .Property(e => e.MachineUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
-                .Property(e => e.MachineUnitPrice_DB)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
-                .Property(e => e.MachineUnitPriceChaElv)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
-                .Property(e => e.MaterialUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
-                .Property(e => e.MaterialUnitPrice_DB)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
-                .Property(e => e.MaterialUnitPriceChaElv)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
-                .Property(e => e.LaborUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
-                .Property(e => e.LaborUnitPrice_DB)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
-                .Property(e => e.LaborUnitPriceChaElv)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
-                .Property(e => e.OverHeadUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
-                .Property(e => e.OverHeadUnitPrice_DB)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_QuFeiCheck>()
-                .Property(e => e.QuFeiJS)
-                .HasPrecision(19, 2);
-
-            modelBuilder.Entity<PingBiao_Eval_QuFeiCheck>()
-                .Property(e => e.FeiLv)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_QuFeiCheck>()
-                .Property(e => e.TouBiaoPriced)
-                .HasPrecision(19, 2);
-
-            modelBuilder.Entity<PingBiao_Eval_QuFeiCheck>()
-                .Property(e => e.GuiDingFl)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_Eval_QuFeiCheck>()
-                .Property(e => e.CalPrice)
-                .HasPrecision(19, 2);
-
-            modelBuilder.Entity<PingBiao_Eval_QuFeiCheck>()
-                .Property(e => e.TiaoZhengPrice)
-                .HasPrecision(19, 2);
-
-            modelBuilder.Entity<PingBiao_Eval_QuFeiTZ>()
-                .Property(e => e.QuFeiJS)
-                .HasPrecision(19, 2);
-
-            modelBuilder.Entity<PingBiao_Eval_QuFeiTZ>()
-                .Property(e => e.TiaoZhengPrice)
-                .HasPrecision(19, 2);
-
-            modelBuilder.Entity<PingBiao_Eval_TouBiaoJGFX>()
-                .Property(e => e.QingDanFei)
-                .HasPrecision(19, 2);
-
-            modelBuilder.Entity<PingBiao_Eval_TouBiaoJGFX>()
-                .Property(e => e.MeasureFei)
-                .HasPrecision(19, 2);
-
-            modelBuilder.Entity<PingBiao_Eval_TouBiaoJGFX>()
-                .Property(e => e.OtherFei)
-                .HasPrecision(19, 2);
-
-            modelBuilder.Entity<PingBiao_Eval_TouBiaoJGFX>()
-                .Property(e => e.GuiFei)
-                .HasPrecision(19, 2);
-
-            modelBuilder.Entity<PingBiao_Eval_TouBiaoJGFX>()
-                .Property(e => e.ShuiJin)
-                .HasPrecision(19, 2);
-
-            modelBuilder.Entity<PingBiao_Eval_TouBiaoJGFX>()
-                .Property(e => e.TotalPrice)
-                .HasPrecision(19, 2);
-
-            modelBuilder.Entity<PingBiao_Eval_ZuiZhongJGB>()
-                .Property(e => e.GuiFei)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_ZuiZhongJGB>()
-                .Property(e => e.ShuiJin)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_ZuiZhongJGB>()
-                .Property(e => e.TouBiaoJG)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_ZuiZhongJGB>()
-                .Property(e => e.CuoShiF)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Eval_ZuiZhongJGB>()
-                .Property(e => e.AnQuanFei)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Extend>()
-                .Property(e => e.Extend1)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Extend>()
-                .Property(e => e.Extend2)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Extend>()
-                .Property(e => e.Extend3)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Extend>()
-                .Property(e => e.Extend4)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Extend>()
-                .Property(e => e.Extend5)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Extend>()
-                .Property(e => e.Extend6)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Extend>()
-                .Property(e => e.Extend7)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Extend>()
-                .Property(e => e.Extend8)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Extend>()
-                .Property(e => e.Extend10)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Extend>()
-                .Property(e => e.Extend9)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Extend>()
-                .Property(e => e.Extend11)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Extend>()
-                .Property(e => e.Extend12)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Extend>()
-                .Property(e => e.Extend13)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Extend>()
-                .Property(e => e.Extend14)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_HistroyOfCBS>()
-                .Property(e => e.TouBiaoTotal)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_KaiBiaoTouBiao>()
-                .Property(e => e.TbrRlv)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Parameter>()
-                .Property(e => e.PageKF)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Parameter>()
-                .Property(e => e.NoDlxmJzzRlv)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Parameter>()
-                .Property(e => e.Rate)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Parameter>()
-                .Property(e => e.DlxmJZZ)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_PB_ZHDJ_XuanDingQD>()
-                .Property(e => e.Quantity)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.Quantity)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.ZongHeUnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.BiaoDiUnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.BiaoDi_ChaE)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.BiaoDi_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.AvgUnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.Avg_ChaE)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.Avg_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.LeastUnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.Least_ChaE)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.Least_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.CiLeastUnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.CiLeast_ChaE)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.CiLeast_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.LaborUnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.MaterialUnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.MachineUnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.OverheadUnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.Profit)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.RiskUnitPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.ZongHeTotalPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.BiaoDiTotalPrice)
-                .HasPrecision(19, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.AvgTotalPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.LeastTotalPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.CiLeastTotalPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.BiaoDiTotalPrice_ChaE)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.BiaoDiTotalPrice_ChaELv)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.AvgTotalPrice_ChaE)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.AvgTotalPrice_ChaELv)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.MaxTotalPrice)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.MaxTotalPrice_ChaE)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.CiLeastTotalPrice_ChaELv)
-                .HasPrecision(20, 9);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.CiLeastTotalPrice_ChaE)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.LeastTotalPrice_ChaELv)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
-                .Property(e => e.LeastTotalPrice_ChaE)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<PingBiao_PFD>()
-                .Property(e => e.ZF)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_PW_LoginInfo>()
-                .Property(e => e.Exam_Mark)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_Pw_TuiJianFZR>()
-                .Property(e => e.TuiJianCount)
-                .HasPrecision(3, 0);
-
-            modelBuilder.Entity<PingBiao_PWDF>()
-                .Property(e => e.PianLiLv_DF)
-                .HasPrecision(18, 4);
-
-            modelBuilder.Entity<PingBiao_QDImportErrorInfo>()
-                .Property(e => e.BiaoDuanGuid)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PingBiao_QDImportErrorInfo>()
-                .Property(e => e.DanWeiGuid)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PingBiao_QDImportErrorInfo>()
-                .Property(e => e.TableName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PingBiao_QDImportErrorInfo>()
-                .Property(e => e.ErrorData)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PingBiao_QDImportErrorInfo>()
-                .Property(e => e.ErrorInfo)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PingBiao_TB_CaiLiaoZGMX>()
-                .Property(e => e.Sl)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_CaiLiaoZGMX>()
-                .Property(e => e.Dj)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_CaiLiaoZGMX>()
-                .Property(e => e.Hj)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_CaiLiaoZGMX>()
-                .Property(e => e.Hj_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_CaiLiaoZGMX>()
-                .Property(e => e.Dj_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_CaiLiaoZGMX>()
-                .Property(e => e.sl_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_Csxm_Main>()
-                .Property(e => e.Zgj)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_TB_Csxm1Mx>()
-                .Property(e => e.Fl)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_Csxm1Mx>()
-                .Property(e => e.Je)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_Csxm1Mx>()
-                .Property(e => e.Js)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_Csxm1Mx>()
-                .Property(e => e.Je_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_Csxm1Mx>()
-                .Property(e => e.fl_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_Csxm1Mx>()
-                .Property(e => e.js_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_Csxm1Mx>()
-                .Property(e => e.Quantity)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_Csxm1Mx>()
-                .Property(e => e.Jjrg)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_Dlxm>()
-                .Property(e => e.Sl)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_Dlxm>()
-                .Property(e => e.Sl_TZ)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_DXGCFHZ>()
-                .Property(e => e.Gf)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_DXGCFHZ>()
-                .Property(e => e.Fyje)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_DXGCFHZ>()
-                .Property(e => e.Zgj)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_DXGCFHZ>()
-                .Property(e => e.Aqf)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_FbrgyclMx>()
-                .Property(e => e.Sl)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_FbrgyclMx>()
-                .Property(e => e.Dj)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_FbrgyclMx>()
-                .Property(e => e.Hj)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_FbrgyclMx>()
-                .Property(e => e.Dj_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_FbrgyclMx>()
-                .Property(e => e.sl_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_FbrgyclMx>()
-                .Property(e => e.hj_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_FeiYongWJ>()
-                .Property(e => e.QuFeiJS)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_FeiYongWJ>()
-                .Property(e => e.FeiLv)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_FeiYongWJ>()
-                .Property(e => e.TotalPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_FywjMx>()
-                .Property(e => e.zgj_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_FywjMx>()
-                .Property(e => e.Je)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_FywjMx>()
-                .Property(e => e.Zgj)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_FywjMx>()
-                .Property(e => e.Je_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_JiRiGBT>()
-                .Property(e => e.je_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_JiRiGMX>()
-                .Property(e => e.ZdSl)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_JiRiGMX>()
-                .Property(e => e.Zhdj)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_JiRiGMX>()
-                .Property(e => e.Zhhj)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_JiRiGMX>()
-                .Property(e => e.ZdSl_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_JiRiGMX>()
-                .Property(e => e.Zhdj_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_JiRiGMX>()
-                .Property(e => e.Zhhj_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItem>()
-                .Property(e => e.Quantity)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItem>()
-                .Property(e => e.ZongHeUnitPrice_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItem>()
-                .Property(e => e.ZongHeTotalPrice_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItem>()
-                .Property(e => e.Zgj_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItem>()
-                .Property(e => e.Quantity_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItem>()
-                .Property(e => e.LaborUnitPrice_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItem>()
-                .Property(e => e.MaterialUnitPrice_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItem>()
-                .Property(e => e.MachineUnitPrice_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItem>()
-                .Property(e => e.OverheadUnitPrice_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItem>()
-                .Property(e => e.Profit_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItem>()
-                .Property(e => e.Jjrg)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItem>()
-                .Property(e => e.DergfDj)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItem>()
-                .Property(e => e.DergfHj)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
-                .Property(e => e.Zcf)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
-                .Property(e => e.Fcf)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
-                .Property(e => e.MaterialUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
-                .Property(e => e.MachineUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
-                .Property(e => e.OverheadUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
-                .Property(e => e.Profit)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
-                .Property(e => e.Quantity)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
-                .Property(e => e.ZongHeUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
-                .Property(e => e.LaborUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
-                .Property(e => e.RiskUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
-                .Property(e => e.ZongHeTotalPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
-                .Property(e => e.ZongHeFei)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
-                .Property(e => e.DergfDj)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
-                .Property(e => e.DergfHj)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_TB_OtherItem>()
-                .Property(e => e.TotalPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_OtherItem>()
-                .Property(e => e.TotalPrice_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QdFb>()
-                .Property(e => e.ZGJ)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_Qdxdercjhl>()
-                .Property(e => e.Hl)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_Qdxdercjhl>()
-                .Property(e => e.Cljg)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.Quantity)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.ZongHeUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.LaborUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.MaterialUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.MachineUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.OverheadUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.Profit)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.RiskUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.ZongHeTotalPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.Zgj)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.Zcf)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.Fcf)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.Zgr)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.Quantity_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.ZongHeTotalPrice_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.ZongHeUnitPrice_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.EquipmentRate)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.RestRate)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.LawfeeRate)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.TaxRate)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.LimitedRate)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.Zgj_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.LaborUnitPrice_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.MaterialUnitPrice_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.MachineUnitPrice_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.OverheadUnitPrice_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.Profit_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.Jjrg)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.Xmbm)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.Quantity2)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.Qtgcf)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.Jjf)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItem>()
-                .Property(e => e.Sj)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItemDERCJHL>()
-                .Property(e => e.Quantity)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItemDERCJHL>()
-                .Property(e => e.ResourcePrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItemDEZJ>()
-                .Property(e => e.Quantity)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItemDEZJ>()
-                .Property(e => e.Qtgcf)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_TB_QingDanItemDEZJ>()
-                .Property(e => e.Sj)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_TB_Resource>()
-                .Property(e => e.Dej)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_ZanLieJEMX>()
-                .Property(e => e.ZdJe)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_ZanLieJEMX>()
-                .Property(e => e.ZdJe_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_ZhuanYeGCZGJMX>()
-                .Property(e => e.Je)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_ZhuanYeGCZGJMX>()
-                .Property(e => e.Je_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TB_ZongChengBFWFMX>()
-                .Property(e => e.Fl)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_TB_ZongChengBFWFMX>()
-                .Property(e => e.je_OK)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TechFileLTX>()
-                .Property(e => e.similarity)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.TouBiaoTotal)
-                .HasPrecision(19, 2);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.QingDanTotal)
-                .HasPrecision(19, 2);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.MeasureTotal)
-                .HasPrecision(19, 2);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.OtherTotal)
-                .HasPrecision(19, 2);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.GuiFeiTotal)
-                .HasPrecision(19, 2);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.ShuiJinTotal)
-                .HasPrecision(19, 2);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.ShuiFei_BeforeTotal)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.GcDe_FeiTotal)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.SafeCivilizationCost)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.MachineTotal)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.OverheadTotal)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.ProfitTotal)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.TemporaryRate)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.LaborTotal)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.MaterialTotal)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.yunfei)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.pbj)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.qdhzhj)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.zdjefl)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.zdjef)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
-                .Property(e => e.zdjhj)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_CaiLiaoZGMX>()
-                .Property(e => e.Sl)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_CaiLiaoZGMX>()
-                .Property(e => e.Dj)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_CaiLiaoZGMX>()
-                .Property(e => e.Hj)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_EconomicPBBF>()
-                .Property(e => e.MinDF)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_EconomicPBBF>()
-                .Property(e => e.MaxDF)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_JiaGongCL>()
-                .Property(e => e.Dj)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_JiaGongCL>()
-                .Property(e => e.Hj)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_JiaGongCL>()
-                .Property(e => e.Sl)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_MeasureItem>()
-                .Property(e => e.Quantity)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_MeasureItem>()
-                .Property(e => e.Zgj)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_QingDanItem>()
-                .Property(e => e.Quantity)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_QingDanItem>()
-                .Property(e => e.ZongheUnitPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_QingDanItem>()
-                .Property(e => e.ZongheTotalPrice)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_QingDanItem>()
-                .Property(e => e.LimitedRate)
-                .HasPrecision(22, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_QingDanItem>()
-                .Property(e => e.zgj)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_QingDanItem>()
-                .Property(e => e.ZongHeFei)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_QingDanItem>()
-                .Property(e => e.DergfDj)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_QingDanItem>()
-                .Property(e => e.DergfHj)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_QingDanItem>()
-                .Property(e => e.Quantity2)
-                .HasPrecision(18, 9);
-
-            modelBuilder.Entity<PingBiao_ZB_ZongChengBFWFMX>()
-                .Property(e => e.Fl)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_ZongHeUnitFX>()
-                .Property(e => e.ZongHeUnitPrice)
-                .HasPrecision(18, 6);
-
-            modelBuilder.Entity<PingBiao_ZongHeUnitFX>()
-                .Property(e => e.AvgZongHeUnitPrice)
-                .HasPrecision(18, 6);
+            //Database.SetInitializer<CmsDbContext>(null);
+            //Database.SetInitializer<PBDbContext>(new CreateDatabaseIfNotExists<PBDbContext>());
+            Database.SetInitializer<PBDbContext>(new MigrateDatabaseToLatestVersion<PBDbContext, Migrations.Configuration>());
+            base.OnModelCreating(modelBuilder);
+
+            //modelBuilder.Entity<PingBiao_BiaoDuan>()
+            //    .Property(e => e.TuiJianPwFzrNo)
+            //    .HasPrecision(2, 0);
+
+            //modelBuilder.Entity<PingBiao_BiaoDuan>()
+            //    .Property(e => e.ControlPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Answer>()
+            //    .Property(e => e.AnswerMark)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Evak_PbDetail>()
+            //    .Property(e => e.MinDF)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Evak_PbDetail>()
+            //    .Property(e => e.MaxDF)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_BaojiaMark>()
+            //    .Property(e => e.ChaElv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_Eval_BaojiaMark>()
+            //    .Property(e => e.DlxmPoint)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_BaojiaMark>()
+            //    .Property(e => e.NoDlxmPoint)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_BasePrice>()
+            //    .Property(e => e.TotalPrice_BiaoDi)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_BasePrice>()
+            //    .Property(e => e.UnitPrice_Avg)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_BasePrice>()
+            //    .Property(e => e.TotalPrice_Avg)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_BasePrice>()
+            //    .Property(e => e.UnitPrice_CiLeast)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_BasePrice>()
+            //    .Property(e => e.TotalPrice_CiLeast)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_BasePrice>()
+            //    .Property(e => e.UnitPrice_Least)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_BasePrice>()
+            //    .Property(e => e.TotalPrice_Least)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_BasePrice>()
+            //    .Property(e => e.UnitPrice_Max)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_BasePrice>()
+            //    .Property(e => e.TotalPrice_Max)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_BasePrice>()
+            //    .Property(e => e.UnitPrice_BiaoDi)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_BasePrice_MeasureItem>()
+            //    .Property(e => e.TotalPrice_Avg)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_BasePrice_MeasureItem>()
+            //    .Property(e => e.TotalPrice_BiaoDi)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_BasePrice_MeasureItem>()
+            //    .Property(e => e.TotalPrice_CiLeast)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_BasePrice_MeasureItem>()
+            //    .Property(e => e.TotalPrice_Least)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_BiaoJiaBJB>()
+            //    .Property(e => e.BiaoDiTotal)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_CSFX>()
+            //    .Property(e => e.JE)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_CSFX>()
+            //    .Property(e => e.BiaoDiUnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_CSFX>()
+            //    .Property(e => e.BiaoDi_ChaE)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_CSFX>()
+            //    .Property(e => e.BiaoDi_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_Eval_CSFX>()
+            //    .Property(e => e.AvgUnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_CSFX>()
+            //    .Property(e => e.Avg_ChaE)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_CSFX>()
+            //    .Property(e => e.Avg_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_Eval_CSFX>()
+            //    .Property(e => e.LeastUnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_CSFX>()
+            //    .Property(e => e.Least_ChaE)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_CSFX>()
+            //    .Property(e => e.Least_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_Eval_CSFX>()
+            //    .Property(e => e.CiLeastUnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_CSFX>()
+            //    .Property(e => e.CiLeast_ChaE)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_CSFX>()
+            //    .Property(e => e.CiLeast_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_Eval_DiYuCBJPD>()
+            //    .Property(e => e.ZongHeUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_DiYuCBJPD>()
+            //    .Property(e => e.Quantity)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_DiYuCBJPD>()
+            //    .Property(e => e.TotalPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_DiYuCBJPD>()
+            //    .Property(e => e.TouBiaoPriceMax)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_DiYuCBJPD>()
+            //    .Property(e => e.ChaE)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_DlxmAccordCheck>()
+            //    .Property(e => e.TiaoZhengTotal)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
+            //    .Property(e => e.JE)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
+            //    .Property(e => e.BiaoDiUnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
+            //    .Property(e => e.BiaoDi_ChaE)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
+            //    .Property(e => e.BiaoDi_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
+            //    .Property(e => e.AvgUnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
+            //    .Property(e => e.Avg_ChaE)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
+            //    .Property(e => e.Avg_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
+            //    .Property(e => e.LeastUnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
+            //    .Property(e => e.Least_ChaE)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
+            //    .Property(e => e.Least_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
+            //    .Property(e => e.CiLeastUnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
+            //    .Property(e => e.CiLeast_ChaE)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_DXGCFX>()
+            //    .Property(e => e.CiLeast_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_Eval_FywjMxMathErrorTZ>()
+            //    .Property(e => e.Je)
+            //    .HasPrecision(18, 0);
+
+            //modelBuilder.Entity<PingBiao_Eval_FywjMxMathErrorTZ>()
+            //    .Property(e => e.Zgj)
+            //    .HasPrecision(18, 0);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei1)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei2)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei3)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei4)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei5)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei6)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei7)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei8)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei9)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei10)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei11)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei12)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei13)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei14)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei15)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei16)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei17)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei18)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei19)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei20)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei21)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiDefault>()
+            //    .Property(e => e.Guifei22)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiList>()
+            //    .Property(e => e.Je)
+            //    .HasPrecision(18, 0);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiList>()
+            //    .Property(e => e.Fl)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei1)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei2)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei3)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei4)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei5)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei6)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei7)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei8)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei9)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei10)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei11)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei12)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei13)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei14)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei15)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei16)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei17)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei18)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei19)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_GuifeiProjectSet>()
+            //    .Property(e => e.Guifei20)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_MathErrors>()
+            //    .Property(e => e.Quantity)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MathErrors>()
+            //    .Property(e => e.UnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MathErrors>()
+            //    .Property(e => e.TotalPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MathErrors>()
+            //    .Property(e => e.CalTotalPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MathErrors>()
+            //    .Property(e => e.TiaoZhengPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MathErrors>()
+            //    .Property(e => e.OverheadUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MathErrors>()
+            //    .Property(e => e.Profit)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MathErrors>()
+            //    .Property(e => e.LaborUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MathErrors>()
+            //    .Property(e => e.MaterialUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MathErrors>()
+            //    .Property(e => e.MachineUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MathErrors>()
+            //    .Property(e => e.RiskUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MathErrorTZ>()
+            //    .Property(e => e.UnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MathErrorTZ>()
+            //    .Property(e => e.Quantity)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MathErrorTZ>()
+            //    .Property(e => e.TotalPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MathErrorTZ>()
+            //    .Property(e => e.CalTotalPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MathErrorTZ>()
+            //    .Property(e => e.TiaoZhengPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MeasureAccordCheck>()
+            //    .Property(e => e.TiaoZhengTotal)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MeasureItem>()
+            //    .Property(e => e.BiaoDi_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_Eval_MeasureItem>()
+            //    .Property(e => e.Least_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_Eval_MeasureItem>()
+            //    .Property(e => e.CiLeast_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_Eval_MeasureItem>()
+            //    .Property(e => e.Avg_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_Eval_MeasureItemBJ>()
+            //    .Property(e => e.HanLiang)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_Eval_MeasureItemBJ>()
+            //    .Property(e => e.Avg_ChaELV)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_Eval_MeasureItemBJ>()
+            //    .Property(e => e.Least_ChaE)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MeasureItemBJ>()
+            //    .Property(e => e.Least_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_Eval_MeasureItemBJ>()
+            //    .Property(e => e.CiLeastTotal)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MeasureItemBJ>()
+            //    .Property(e => e.CiDiLeast_ChaE)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_MeasureItemBJ>()
+            //    .Property(e => e.CiDiLeast_ChaELV)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_Eval_MeasureItemBJ>()
+            //    .Property(e => e.BiaoDi_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_Eval_MeasureItemBJ>()
+            //    .Property(e => e.MeasueTotal)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_OtherAccordCheck>()
+            //    .Property(e => e.TiaoZhengTotal)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_QingDanAccordCheck>()
+            //    .Property(e => e.TiaoZhengTotal)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
+            //    .Property(e => e.ZongHeUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
+            //    .Property(e => e.ZongHeUnitPrice_DB)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
+            //    .Property(e => e.ZongHeUnitPriceChaElv)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
+            //    .Property(e => e.OverHeadUnitPriceChaElv)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
+            //    .Property(e => e.MachineUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
+            //    .Property(e => e.MachineUnitPrice_DB)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
+            //    .Property(e => e.MachineUnitPriceChaElv)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
+            //    .Property(e => e.MaterialUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
+            //    .Property(e => e.MaterialUnitPrice_DB)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
+            //    .Property(e => e.MaterialUnitPriceChaElv)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
+            //    .Property(e => e.LaborUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
+            //    .Property(e => e.LaborUnitPrice_DB)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
+            //    .Property(e => e.LaborUnitPriceChaElv)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
+            //    .Property(e => e.OverHeadUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_QingDanFYDBMX>()
+            //    .Property(e => e.OverHeadUnitPrice_DB)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_QuFeiCheck>()
+            //    .Property(e => e.QuFeiJS)
+            //    .HasPrecision(19, 2);
+
+            //modelBuilder.Entity<PingBiao_Eval_QuFeiCheck>()
+            //    .Property(e => e.FeiLv)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_QuFeiCheck>()
+            //    .Property(e => e.TouBiaoPriced)
+            //    .HasPrecision(19, 2);
+
+            //modelBuilder.Entity<PingBiao_Eval_QuFeiCheck>()
+            //    .Property(e => e.GuiDingFl)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_Eval_QuFeiCheck>()
+            //    .Property(e => e.CalPrice)
+            //    .HasPrecision(19, 2);
+
+            //modelBuilder.Entity<PingBiao_Eval_QuFeiCheck>()
+            //    .Property(e => e.TiaoZhengPrice)
+            //    .HasPrecision(19, 2);
+
+            //modelBuilder.Entity<PingBiao_Eval_QuFeiTZ>()
+            //    .Property(e => e.QuFeiJS)
+            //    .HasPrecision(19, 2);
+
+            //modelBuilder.Entity<PingBiao_Eval_QuFeiTZ>()
+            //    .Property(e => e.TiaoZhengPrice)
+            //    .HasPrecision(19, 2);
+
+            //modelBuilder.Entity<PingBiao_Eval_TouBiaoJGFX>()
+            //    .Property(e => e.QingDanFei)
+            //    .HasPrecision(19, 2);
+
+            //modelBuilder.Entity<PingBiao_Eval_TouBiaoJGFX>()
+            //    .Property(e => e.MeasureFei)
+            //    .HasPrecision(19, 2);
+
+            //modelBuilder.Entity<PingBiao_Eval_TouBiaoJGFX>()
+            //    .Property(e => e.OtherFei)
+            //    .HasPrecision(19, 2);
+
+            //modelBuilder.Entity<PingBiao_Eval_TouBiaoJGFX>()
+            //    .Property(e => e.GuiFei)
+            //    .HasPrecision(19, 2);
+
+            //modelBuilder.Entity<PingBiao_Eval_TouBiaoJGFX>()
+            //    .Property(e => e.ShuiJin)
+            //    .HasPrecision(19, 2);
+
+            //modelBuilder.Entity<PingBiao_Eval_TouBiaoJGFX>()
+            //    .Property(e => e.TotalPrice)
+            //    .HasPrecision(19, 2);
+
+            //modelBuilder.Entity<PingBiao_Eval_ZuiZhongJGB>()
+            //    .Property(e => e.GuiFei)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_ZuiZhongJGB>()
+            //    .Property(e => e.ShuiJin)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_ZuiZhongJGB>()
+            //    .Property(e => e.TouBiaoJG)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_ZuiZhongJGB>()
+            //    .Property(e => e.CuoShiF)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Eval_ZuiZhongJGB>()
+            //    .Property(e => e.AnQuanFei)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Extend>()
+            //    .Property(e => e.Extend1)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Extend>()
+            //    .Property(e => e.Extend2)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Extend>()
+            //    .Property(e => e.Extend3)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Extend>()
+            //    .Property(e => e.Extend4)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Extend>()
+            //    .Property(e => e.Extend5)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Extend>()
+            //    .Property(e => e.Extend6)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Extend>()
+            //    .Property(e => e.Extend7)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Extend>()
+            //    .Property(e => e.Extend8)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Extend>()
+            //    .Property(e => e.Extend10)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Extend>()
+            //    .Property(e => e.Extend9)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Extend>()
+            //    .Property(e => e.Extend11)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Extend>()
+            //    .Property(e => e.Extend12)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Extend>()
+            //    .Property(e => e.Extend13)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Extend>()
+            //    .Property(e => e.Extend14)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_HistroyOfCBS>()
+            //    .Property(e => e.TouBiaoTotal)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_KaiBiaoTouBiao>()
+            //    .Property(e => e.TbrRlv)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Parameter>()
+            //    .Property(e => e.PageKF)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Parameter>()
+            //    .Property(e => e.NoDlxmJzzRlv)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Parameter>()
+            //    .Property(e => e.Rate)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Parameter>()
+            //    .Property(e => e.DlxmJZZ)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_PB_ZHDJ_XuanDingQD>()
+            //    .Property(e => e.Quantity)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.Quantity)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.ZongHeUnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.BiaoDiUnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.BiaoDi_ChaE)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.BiaoDi_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.AvgUnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.Avg_ChaE)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.Avg_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.LeastUnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.Least_ChaE)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.Least_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.CiLeastUnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.CiLeast_ChaE)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.CiLeast_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.LaborUnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.MaterialUnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.MachineUnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.OverheadUnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.Profit)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.RiskUnitPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.ZongHeTotalPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.BiaoDiTotalPrice)
+            //    .HasPrecision(19, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.AvgTotalPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.LeastTotalPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.CiLeastTotalPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.BiaoDiTotalPrice_ChaE)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.BiaoDiTotalPrice_ChaELv)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.AvgTotalPrice_ChaE)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.AvgTotalPrice_ChaELv)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.MaxTotalPrice)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.MaxTotalPrice_ChaE)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.CiLeastTotalPrice_ChaELv)
+            //    .HasPrecision(20, 9);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.CiLeastTotalPrice_ChaE)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.LeastTotalPrice_ChaELv)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_PF_ZHDJQD>()
+            //    .Property(e => e.LeastTotalPrice_ChaE)
+            //    .HasPrecision(18, 5);
+
+            //modelBuilder.Entity<PingBiao_PFD>()
+            //    .Property(e => e.ZF)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_PW_LoginInfo>()
+            //    .Property(e => e.Exam_Mark)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_Pw_TuiJianFZR>()
+            //    .Property(e => e.TuiJianCount)
+            //    .HasPrecision(3, 0);
+
+            //modelBuilder.Entity<PingBiao_PWDF>()
+            //    .Property(e => e.PianLiLv_DF)
+            //    .HasPrecision(18, 4);
+
+            //modelBuilder.Entity<PingBiao_QDImportErrorInfo>()
+            //    .Property(e => e.BiaoDuanGuid)
+            //    .IsUnicode(false);
+
+            //modelBuilder.Entity<PingBiao_QDImportErrorInfo>()
+            //    .Property(e => e.DanWeiGuid)
+            //    .IsUnicode(false);
+
+            //modelBuilder.Entity<PingBiao_QDImportErrorInfo>()
+            //    .Property(e => e.TableName)
+            //    .IsUnicode(false);
+
+            //modelBuilder.Entity<PingBiao_QDImportErrorInfo>()
+            //    .Property(e => e.ErrorData)
+            //    .IsUnicode(false);
+
+            //modelBuilder.Entity<PingBiao_QDImportErrorInfo>()
+            //    .Property(e => e.ErrorInfo)
+            //    .IsUnicode(false);
+
+            //modelBuilder.Entity<PingBiao_TB_CaiLiaoZGMX>()
+            //    .Property(e => e.Sl)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_CaiLiaoZGMX>()
+            //    .Property(e => e.Dj)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_CaiLiaoZGMX>()
+            //    .Property(e => e.Hj)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_CaiLiaoZGMX>()
+            //    .Property(e => e.Hj_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_CaiLiaoZGMX>()
+            //    .Property(e => e.Dj_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_CaiLiaoZGMX>()
+            //    .Property(e => e.sl_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_Csxm_Main>()
+            //    .Property(e => e.Zgj)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_Csxm1Mx>()
+            //    .Property(e => e.Fl)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_Csxm1Mx>()
+            //    .Property(e => e.Je)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_Csxm1Mx>()
+            //    .Property(e => e.Js)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_Csxm1Mx>()
+            //    .Property(e => e.Je_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_Csxm1Mx>()
+            //    .Property(e => e.fl_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_Csxm1Mx>()
+            //    .Property(e => e.js_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_Csxm1Mx>()
+            //    .Property(e => e.Quantity)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_Csxm1Mx>()
+            //    .Property(e => e.Jjrg)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_Dlxm>()
+            //    .Property(e => e.Sl)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_Dlxm>()
+            //    .Property(e => e.Sl_TZ)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_DXGCFHZ>()
+            //    .Property(e => e.Gf)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_DXGCFHZ>()
+            //    .Property(e => e.Fyje)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_DXGCFHZ>()
+            //    .Property(e => e.Zgj)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_DXGCFHZ>()
+            //    .Property(e => e.Aqf)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_FbrgyclMx>()
+            //    .Property(e => e.Sl)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_FbrgyclMx>()
+            //    .Property(e => e.Dj)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_FbrgyclMx>()
+            //    .Property(e => e.Hj)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_FbrgyclMx>()
+            //    .Property(e => e.Dj_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_FbrgyclMx>()
+            //    .Property(e => e.sl_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_FbrgyclMx>()
+            //    .Property(e => e.hj_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_FeiYongWJ>()
+            //    .Property(e => e.QuFeiJS)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_FeiYongWJ>()
+            //    .Property(e => e.FeiLv)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_FeiYongWJ>()
+            //    .Property(e => e.TotalPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_FywjMx>()
+            //    .Property(e => e.zgj_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_FywjMx>()
+            //    .Property(e => e.Je)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_FywjMx>()
+            //    .Property(e => e.Zgj)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_FywjMx>()
+            //    .Property(e => e.Je_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_JiRiGBT>()
+            //    .Property(e => e.je_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_JiRiGMX>()
+            //    .Property(e => e.ZdSl)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_JiRiGMX>()
+            //    .Property(e => e.Zhdj)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_JiRiGMX>()
+            //    .Property(e => e.Zhhj)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_JiRiGMX>()
+            //    .Property(e => e.ZdSl_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_JiRiGMX>()
+            //    .Property(e => e.Zhdj_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_JiRiGMX>()
+            //    .Property(e => e.Zhhj_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItem>()
+            //    .Property(e => e.Quantity)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItem>()
+            //    .Property(e => e.ZongHeUnitPrice_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItem>()
+            //    .Property(e => e.ZongHeTotalPrice_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItem>()
+            //    .Property(e => e.Zgj_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItem>()
+            //    .Property(e => e.Quantity_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItem>()
+            //    .Property(e => e.LaborUnitPrice_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItem>()
+            //    .Property(e => e.MaterialUnitPrice_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItem>()
+            //    .Property(e => e.MachineUnitPrice_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItem>()
+            //    .Property(e => e.OverheadUnitPrice_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItem>()
+            //    .Property(e => e.Profit_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItem>()
+            //    .Property(e => e.Jjrg)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItem>()
+            //    .Property(e => e.DergfDj)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItem>()
+            //    .Property(e => e.DergfHj)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
+            //    .Property(e => e.Zcf)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
+            //    .Property(e => e.Fcf)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
+            //    .Property(e => e.MaterialUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
+            //    .Property(e => e.MachineUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
+            //    .Property(e => e.OverheadUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
+            //    .Property(e => e.Profit)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
+            //    .Property(e => e.Quantity)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
+            //    .Property(e => e.ZongHeUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
+            //    .Property(e => e.LaborUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
+            //    .Property(e => e.RiskUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
+            //    .Property(e => e.ZongHeTotalPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
+            //    .Property(e => e.ZongHeFei)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
+            //    .Property(e => e.DergfDj)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_MeasureItemDEZJ>()
+            //    .Property(e => e.DergfHj)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_OtherItem>()
+            //    .Property(e => e.TotalPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_OtherItem>()
+            //    .Property(e => e.TotalPrice_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QdFb>()
+            //    .Property(e => e.ZGJ)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_Qdxdercjhl>()
+            //    .Property(e => e.Hl)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_Qdxdercjhl>()
+            //    .Property(e => e.Cljg)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.Quantity)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.ZongHeUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.LaborUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.MaterialUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.MachineUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.OverheadUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.Profit)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.RiskUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.ZongHeTotalPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.Zgj)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.Zcf)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.Fcf)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.Zgr)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.Quantity_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.ZongHeTotalPrice_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.ZongHeUnitPrice_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.EquipmentRate)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.RestRate)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.LawfeeRate)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.TaxRate)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.LimitedRate)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.Zgj_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.LaborUnitPrice_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.MaterialUnitPrice_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.MachineUnitPrice_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.OverheadUnitPrice_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.Profit_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.Jjrg)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.Xmbm)
+            //    .IsUnicode(false);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.Quantity2)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.Qtgcf)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.Jjf)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItem>()
+            //    .Property(e => e.Sj)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItemDERCJHL>()
+            //    .Property(e => e.Quantity)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItemDERCJHL>()
+            //    .Property(e => e.ResourcePrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItemDEZJ>()
+            //    .Property(e => e.Quantity)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItemDEZJ>()
+            //    .Property(e => e.Qtgcf)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_QingDanItemDEZJ>()
+            //    .Property(e => e.Sj)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_Resource>()
+            //    .Property(e => e.Dej)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_ZanLieJEMX>()
+            //    .Property(e => e.ZdJe)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_ZanLieJEMX>()
+            //    .Property(e => e.ZdJe_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_ZhuanYeGCZGJMX>()
+            //    .Property(e => e.Je)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_ZhuanYeGCZGJMX>()
+            //    .Property(e => e.Je_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TB_ZongChengBFWFMX>()
+            //    .Property(e => e.Fl)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_TB_ZongChengBFWFMX>()
+            //    .Property(e => e.je_OK)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TechFileLTX>()
+            //    .Property(e => e.similarity)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.TouBiaoTotal)
+            //    .HasPrecision(19, 2);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.QingDanTotal)
+            //    .HasPrecision(19, 2);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.MeasureTotal)
+            //    .HasPrecision(19, 2);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.OtherTotal)
+            //    .HasPrecision(19, 2);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.GuiFeiTotal)
+            //    .HasPrecision(19, 2);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.ShuiJinTotal)
+            //    .HasPrecision(19, 2);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.ShuiFei_BeforeTotal)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.GcDe_FeiTotal)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.SafeCivilizationCost)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.MachineTotal)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.OverheadTotal)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.ProfitTotal)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.TemporaryRate)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.LaborTotal)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.MaterialTotal)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.yunfei)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.pbj)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.qdhzhj)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.zdjefl)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.zdjef)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_TouBiao_DetailBaoJia>()
+            //    .Property(e => e.zdjhj)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_CaiLiaoZGMX>()
+            //    .Property(e => e.Sl)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_CaiLiaoZGMX>()
+            //    .Property(e => e.Dj)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_CaiLiaoZGMX>()
+            //    .Property(e => e.Hj)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_EconomicPBBF>()
+            //    .Property(e => e.MinDF)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_EconomicPBBF>()
+            //    .Property(e => e.MaxDF)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_JiaGongCL>()
+            //    .Property(e => e.Dj)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_JiaGongCL>()
+            //    .Property(e => e.Hj)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_JiaGongCL>()
+            //    .Property(e => e.Sl)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_MeasureItem>()
+            //    .Property(e => e.Quantity)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_MeasureItem>()
+            //    .Property(e => e.Zgj)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_QingDanItem>()
+            //    .Property(e => e.Quantity)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_QingDanItem>()
+            //    .Property(e => e.ZongheUnitPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_QingDanItem>()
+            //    .Property(e => e.ZongheTotalPrice)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_QingDanItem>()
+            //    .Property(e => e.LimitedRate)
+            //    .HasPrecision(22, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_QingDanItem>()
+            //    .Property(e => e.zgj)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_QingDanItem>()
+            //    .Property(e => e.ZongHeFei)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_QingDanItem>()
+            //    .Property(e => e.DergfDj)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_QingDanItem>()
+            //    .Property(e => e.DergfHj)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_QingDanItem>()
+            //    .Property(e => e.Quantity2)
+            //    .HasPrecision(18, 9);
+
+            //modelBuilder.Entity<PingBiao_ZB_ZongChengBFWFMX>()
+            //    .Property(e => e.Fl)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_ZongHeUnitFX>()
+            //    .Property(e => e.ZongHeUnitPrice)
+            //    .HasPrecision(18, 6);
+
+            //modelBuilder.Entity<PingBiao_ZongHeUnitFX>()
+            //    .Property(e => e.AvgZongHeUnitPrice)
+            //    .HasPrecision(18, 6);
         }
     }
 }

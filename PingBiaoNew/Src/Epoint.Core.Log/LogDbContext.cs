@@ -22,7 +22,7 @@ namespace Epoint.Core.Log
     public class LogDbContext : DbContextBase, IAuditable
     {
         public LogDbContext()
-            : base(CachedConfigContext.Current.DaoConfig.Log)
+            : base("Log")
         {
             Database.SetInitializer<LogDbContext>(null);
         }

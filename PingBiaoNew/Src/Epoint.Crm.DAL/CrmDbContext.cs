@@ -11,7 +11,7 @@ namespace Epoint.Crm.DAL
     public class CrmDbContext : DbContextBase
     {
         public CrmDbContext()
-            : base(CachedConfigContext.Current.DaoConfig.Crm, new LogDbContext())
+            : base("Crm", new LogDbContext())
         {
         }
 
