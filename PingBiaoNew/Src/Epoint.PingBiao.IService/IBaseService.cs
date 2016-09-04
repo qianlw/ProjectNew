@@ -70,7 +70,7 @@ namespace Epoint.PingBiao.IService
         /// </summary>
         /// <param name="whereLambda"></param>
         /// <returns></returns>
-        List<T> GetListBy(Expression<Func<T, bool>> whereLambda);
+        IQueryable<T> GetListBy(Expression<Func<T, bool>> whereLambda);
         #endregion
 
         #region 5.1 根据条件 排序 和查询 + List<T> GetListBy<TKey>
@@ -81,7 +81,7 @@ namespace Epoint.PingBiao.IService
         /// <param name="whereLambda">查询条件 lambda表达式</param>
         /// <param name="orderLambda">排序条件 lambda表达式</param>
         /// <returns></returns>
-        List<T> GetListBy<TKey>(Expression<Func<T, bool>> whereLambda, Expression<Func<T, TKey>> orderLambda);
+        IQueryable<T> GetListBy<TKey>(Expression<Func<T, bool>> whereLambda, Expression<Func<T, TKey>> orderLambda);
         #endregion
 
         #region 6.0 分页查询 + List<T> GetPagedList<TKey>
@@ -93,7 +93,7 @@ namespace Epoint.PingBiao.IService
         /// <param name="whereLambda">条件 lambda表达式</param>
         /// <param name="orderBy">排序 lambda表达式</param>
         /// <returns></returns>
-        List<T> GetPagedList<TKey>(int pageIndex, int pageSize, Expression<Func<T, bool>> whereLambda, Expression<Func<T, TKey>> orderBy);
+        IQueryable<T> GetPagedList<TKey>(int pageIndex, int pageSize, Expression<Func<T, bool>> whereLambda, Expression<Func<T, TKey>> orderBy);
         #endregion
     }
 }

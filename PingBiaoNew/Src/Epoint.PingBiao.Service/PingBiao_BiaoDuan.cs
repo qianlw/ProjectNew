@@ -13,8 +13,8 @@ using Epoint.PingBiao.DAL;
 namespace Epoint.PingBiao.Service  
 { 
 	public partial class PingBiao_BiaoDuan : BaseService<Epoint.PingBiao.Contract.PingBiao_BiaoDuan> , IPingBiao_BiaoDuan
-	{	
-   
+	{
+        
 	}
 }
 

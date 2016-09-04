@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Epoint.Framework.Contract;
 
 namespace Epoint.Web.Admin.Areas.PB.Controllers
 {
@@ -17,10 +18,12 @@ namespace Epoint.Web.Admin.Areas.PB.Controllers
         //
         // GET: /PB/BiaoDuan/
 
-        public ActionResult Index()
+        public ActionResult Index(Request request)
         {
-            ViewBag.Test = iPingBiao_BiaoDuan.GetListBy(p => p.BiaoDuanName != null).FirstOrDefault().BiaoDuanName;
-            return View();
+            var result = iPingBiao_BiaoDuan.GetListBy(p => p.BiaoDuanName != null).OrderByDescending(u => u.ID).ToPagedList(request.PageIndex,request.PageSize);
+            
+            //var result = this.PingBiao_BiaoDuanService.GetListBy(p => p.BiaoDuanName != null);
+            return View(result);
         }
 
         //

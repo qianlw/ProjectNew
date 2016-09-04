@@ -24,7 +24,7 @@ namespace Epoint.PingBiao.Contract
         public DateTime? OperateDate { get; set; }
 
         
-        public int Row_ID { get; set; }
+        
 
         [StringLength(4)]
         public string YearFlag { get; set; }

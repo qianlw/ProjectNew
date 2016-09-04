@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Epoint.PingBiao.DAL;
+using Epoint.Framework.Contract;
 
 namespace Epoint.PingBiao.Service
 {
@@ -157,9 +158,9 @@ namespace Epoint.PingBiao.Service
         /// </summary>
         /// <param name="whereLambda"></param>
         /// <returns></returns>
-        public virtual List<T> GetListBy(Expression<Func<T, bool>> whereLambda)
+        public virtual IQueryable<T> GetListBy(Expression<Func<T, bool>> whereLambda)
         {
-            return PBDbContext.Set<T>().Where(whereLambda).ToList();
+            return PBDbContext.Set<T>().Where(whereLambda);
         }
         #endregion
 
@@ -171,9 +172,9 @@ namespace Epoint.PingBiao.Service
         /// <param name="whereLambda">查询条件 lambda表达式</param>
         /// <param name="orderLambda">排序条件 lambda表达式</param>
         /// <returns></returns>
-        public virtual List<T> GetListBy<TKey>(Expression<Func<T, bool>> whereLambda, Expression<Func<T, TKey>> orderLambda)
+        public virtual IQueryable<T> GetListBy<TKey>(Expression<Func<T, bool>> whereLambda, Expression<Func<T, TKey>> orderLambda)
         {
-            return PBDbContext.Set<T>().Where(whereLambda).OrderBy(orderLambda).ToList();
+            return PBDbContext.Set<T>().Where(whereLambda).OrderBy(orderLambda);
         }
         #endregion
 
@@ -186,14 +187,14 @@ namespace Epoint.PingBiao.Service
         /// <param name="whereLambda">条件 lambda表达式</param>
         /// <param name="orderBy">排序 lambda表达式</param>
         /// <returns></returns>
-        public List<T> GetPagedList<TKey>(int pageIndex, int pageSize, Expression<Func<T, bool>> whereLambda, Expression<Func<T, TKey>> orderBy)
+        public IQueryable<T> GetPagedList<TKey>(int pageIndex, int pageSize, Expression<Func<T, bool>> whereLambda, Expression<Func<T, TKey>> orderBy)
         {
             // 分页 一定注意： Skip 之前一定要 OrderBy
-            return PBDbContext.Set<T>().Where(whereLambda).OrderBy(orderBy).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+            return PBDbContext.Set<T>().Where(whereLambda).OrderBy(orderBy).Skip((pageIndex - 1) * pageSize).Take(pageSize);
         }
         #endregion
 
-
+        
         
 
     }

@@ -86,7 +86,7 @@ namespace Epoint.PingBiao.Contract
         public string PBBF { get; set; }
 
         
-        public int Row_ID { get; set; }
+        
 
         [StringLength(2000)]
         public string Note { get; set; }

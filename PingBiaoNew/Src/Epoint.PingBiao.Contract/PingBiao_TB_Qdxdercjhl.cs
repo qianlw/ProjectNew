@@ -19,7 +19,7 @@ namespace Epoint.PingBiao.Contract
 
         
         [Column(Order = 0)]
-        public int Row_ID { get; set; }
+        
 
         [StringLength(4)]
         public string YearFlag { get; set; }

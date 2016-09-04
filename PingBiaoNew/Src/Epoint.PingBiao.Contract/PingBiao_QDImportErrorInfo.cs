@@ -10,7 +10,7 @@ namespace Epoint.PingBiao.Contract
     public partial class PingBiao_QDImportErrorInfo : ModelBase
     {
         
-        public int Row_ID { get; set; }
+        
 
         [StringLength(255)]
         public string BiaoDuanGuid { get; set; }

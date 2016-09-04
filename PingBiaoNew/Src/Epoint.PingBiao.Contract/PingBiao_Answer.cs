@@ -15,10 +15,7 @@ namespace Epoint.PingBiao.Contract
         [StringLength(50)]
         public string OperateUserName { get; set; }
 
-        public DateTime? OperateDate { get; set; }
-
-        
-        public int Row_ID { get; set; }
+        public DateTime? OperateDate { get; set; } 
 
         [StringLength(4)]
         public string YearFlag { get; set; }
