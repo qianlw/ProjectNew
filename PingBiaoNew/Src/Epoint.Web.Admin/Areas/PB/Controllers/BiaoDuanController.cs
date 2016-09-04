@@ -20,7 +20,7 @@ namespace Epoint.Web.Admin.Areas.PB.Controllers
 
         public ActionResult Index(Request request)
         {
-            var result = iPingBiao_BiaoDuan.GetListBy(p => p.BiaoDuanName != null).OrderByDescending(u => u.ID).ToPagedList(request.PageIndex,request.PageSize);
+            var result = iPingBiao_BiaoDuan.GetListBy(p => p.BiaoDuanName != null,m=>m.ID).ToPagedList(request.PageIndex,request.PageSize);
             
             //var result = this.PingBiao_BiaoDuanService.GetListBy(p => p.BiaoDuanName != null);
             return View(result);
