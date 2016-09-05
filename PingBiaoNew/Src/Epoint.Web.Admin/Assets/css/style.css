@@ -1538,8 +1538,8 @@ Custom icon buttons
 /* extended dropdowns */
 .dropdown-menu.extended {
   min-width: 160px !important;
-  max-width: 300px !important;
-  width: 233px !important;
+  max-width: 400px !important;
+  width: 600px !important;
   background-color: #ffffff !important;
 }
 
