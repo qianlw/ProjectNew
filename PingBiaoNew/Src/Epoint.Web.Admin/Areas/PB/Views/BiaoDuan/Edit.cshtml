@@ -1,0 +1,43 @@
+﻿@using Epoint.Framework.Contract
+@using Epoint.Framework.Web.Controls
+@using Epoint.PingBiao.Contract
+@using Epoint.Web
+@model PingBiao_BiaoDuan
+@{
+    Layout = "~/Views/Shared/_Layout.Edit.cshtml";
+}
+@section PageSpecificStyleSheetIncludes{
+}
+@section PageSpecificJavascriptIncludes{
+}
+@section MainContent{
+    <div class="portlet-body form-horizontal form-bordered form-row-stripped">
+        <div class="row-fluid">
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>标段编号：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.BiaoDuanNo, new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.BiaoDuanNo)</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>标段名称：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.BiaoDuanName, new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.BiaoDuanName)</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>开标日期：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.KaiBiaoDate, new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.KaiBiaoDate)</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+

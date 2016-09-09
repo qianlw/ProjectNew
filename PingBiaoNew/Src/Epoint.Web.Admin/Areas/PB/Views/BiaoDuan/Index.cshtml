@@ -16,20 +16,7 @@
         </div>       
         
     </div>
-    <div class="span2">
-        <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-default active">
-                <input type="radio" class="toggle"> 所有未开标项目
-            </label>
-            <label class="btn btn-default">
-                <input type="radio" class="toggle"> 今日开标项目
-            </label>
-            <label class="btn btn-default">
-                <input type="radio" class="toggle"> 所有已开标项目
-            </label>
-        </div>
-    </div>
-    <div class="span6">
+    <div class="span8">
         @using (Html.BeginForm(null, null, null, FormMethod.Get, new { id = "search" }))
         {
             <div class="dataTables_filter">
@@ -38,8 +25,20 @@
                 </label>
                 <label>
                     <span>名称：</span>
-                    @Html.TextBox("Name", null, new { @class = "m-wrap small" })
+                    @Html.TextBox("BiaoDuanName", Request["BiaoDuanName"], new { @class = "m-wrap small" })
                 </label>
+                @Html.Hidden("type", Request["type"] ?? null)
+                <ul class="nav nav-pills">
+                    <li class="@(Request["type"] == "False" ? "active" : "")">
+                        @Ajax.ActionLink("所有未开标项目 ", "Index", new { BiaoDuanName = Request["BiaoDuanName"], type = false }, new AjaxOptions { UpdateTargetId = "mainForm" })
+                    </li>
+                    <li class="@(string.IsNullOrEmpty(Request["type"]) == true ? "active" : "")">
+                        @Ajax.ActionLink("今日开标项目 ", "Index", new { BiaoDuanName = Request["BiaoDuanName"] }, new AjaxOptions { UpdateTargetId = "mainForm" })
+                    </li>
+                    <li class="@(Request["type"] == "True" ? "active" : "")">
+                        @Ajax.ActionLink("所有已开标项目 ", "Index", new { BiaoDuanName = Request["BiaoDuanName"], type = true }, new AjaxOptions { UpdateTargetId = "mainForm" })
+                    </li>
+                </ul>
             </div>
         }
     </div>

@@ -1,6 +1,7 @@
 namespace Epoint.PingBiao.Contract
 {
     using Epoint.Framework.Contract;
+    using Epoint.Framework.Utility;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -454,5 +455,21 @@ namespace Epoint.PingBiao.Contract
 
         [StringLength(50)]
         public string IsLiuBiao { get; set; }
+    }
+
+    /// <summary>
+    /// 标段Group
+    /// </summary>
+    public enum EnumBiaoDuanGroup
+    {
+        [EnumTitle("所有已开标项目")]
+        PassBiaoduan = 1,
+
+        [EnumTitle("今日开标项目")]
+        tdBiaoDuan = 2,
+
+        [EnumTitle("36-40")]
+        FutureBiaoDuan = 3,
+
     }
 }

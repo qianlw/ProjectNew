@@ -17,7 +17,7 @@ namespace Epoint.Web.Admin.Areas.PB
             context.MapRoute(
                 "PB_default",
                 "PB/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Default", id = UrlParameter.Optional }
             );
         }
     }

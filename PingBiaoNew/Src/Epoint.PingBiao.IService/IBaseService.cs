@@ -84,6 +84,15 @@ namespace Epoint.PingBiao.IService
         IQueryable<T> GetListBy<TKey>(Expression<Func<T, bool>> whereLambda, Expression<Func<T, TKey>> orderLambda);
         #endregion
 
+        #region 5.2 根据ID查询 + List<T> GetListBy<TKey>
+        /// <summary>
+        /// 根据ID查询
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        T GetByID(string guid);
+        #endregion
+
         #region 6.0 分页查询 + List<T> GetPagedList<TKey>
         /// <summary>
         /// 6.0 分页查询 + List<T> GetPagedList<TKey>
@@ -95,5 +104,7 @@ namespace Epoint.PingBiao.IService
         /// <returns></returns>
         IQueryable<T> GetPagedList<TKey>(int pageIndex, int pageSize, Expression<Func<T, bool>> whereLambda, Expression<Func<T, TKey>> orderBy);
         #endregion
+
+
     }
 }
