@@ -10,6 +10,12 @@ namespace Epoint.PingBiao.Contract
 
     public partial class PingBiao_BiaoDuan : ModelBase
     {
+        public PingBiao_BiaoDuan()
+        {
+            this.RowGuid = Guid.NewGuid().ToString();
+            this.BiaoDuanGuid = Guid.NewGuid().ToString();
+        }
+
         [StringLength(50)]
         public string BelongXiaQuCode { get; set; }
 

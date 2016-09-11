@@ -7,7 +7,7 @@
     Layout = "~/Views/Shared/_Layout.Edit.cshtml";
 }
 @section PageSpecificStyleSheetIncludes{
-    <link rel="stylesheet" type="text/css" href="@Url.StaticFile("/assets/jquery-tags-input/jquery.tagsinput.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.StaticFile("/../assets/jquery-tags-input/jquery.tagsinput.css")" />
     <style>
         .hottag {margin:2px; padding:5px; cursor:pointer }
     </style>
@@ -15,7 +15,7 @@
 @section PageSpecificJavascriptIncludes{
     <script type="text/javascript" src="@Url.StaticFile("/content/scripts/flashupload.js")"></script>
     <script type="text/javascript" src="@Url.StaticFile("/content/xheditor/xheditor-1.1.6-zh-cn.min.js")"></script>	
-    <script type="text/javascript" src="@Url.StaticFile("/assets/jquery-tags-input/jquery.tagsinput.js")"></script>	
+    <script type="text/javascript" src="@Url.StaticFile("/../assets/jquery-tags-input/jquery.tagsinput.js")"></script>	
     <script type="text/javascript">
         $('#uploader').FileUpload({
             'subfolder': 'cms',

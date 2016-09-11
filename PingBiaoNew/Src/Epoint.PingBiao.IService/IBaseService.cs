@@ -90,7 +90,7 @@ namespace Epoint.PingBiao.IService
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        T GetByID(string guid);
+        T GetByID(int id);
         #endregion
 
         #region 6.0 分页查询 + List<T> GetPagedList<TKey>

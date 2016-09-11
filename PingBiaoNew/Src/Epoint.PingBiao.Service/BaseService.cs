@@ -88,13 +88,13 @@ namespace Epoint.PingBiao.Service
             //4.1将 对象 添加到 EF中
             DbEntityEntry entry = pbDbContext.Entry<T>(model);
             //4.2先设置 对象的包装 状态为 Unchanged
-            entry.State = EntityState.Unchanged;
+            entry.State = EntityState.Modified;
             //4.3循环 被修改的属性名 数组
-            foreach (string proName in proNames)
-            {
-                //4.4将每个 被修改的属性的状态 设置为已修改状态;后面生成update语句时，就只为已修改的属性 更新
-                entry.Property(proName).IsModified = true;
-            }
+            //foreach (string proName in proNames)
+            //{
+            //    //4.4将每个 被修改的属性的状态 设置为已修改状态;后面生成update语句时，就只为已修改的属性 更新
+            //    entry.Property(proName).IsModified = true;
+            //}
             //4.4一次性 生成sql语句到数据库执行
             return pbDbContext.SaveChanges();
         }
@@ -184,9 +184,9 @@ namespace Epoint.PingBiao.Service
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        public virtual T GetByID(string guid)
+        public virtual T GetByID(int id)
         {
-            return pbDbContext.Set<T>().Find(guid);
+            return pbDbContext.Set<T>().Find(id);
         }
         #endregion
 

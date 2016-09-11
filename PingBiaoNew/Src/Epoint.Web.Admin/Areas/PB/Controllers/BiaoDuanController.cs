@@ -43,7 +43,7 @@ namespace Epoint.Web.Admin.Areas.PB.Controllers
             {
                 result = result.Where(p => p.BiaoDuanGuid.Contains(request.BiaoDuanName)).ToList();
             }
-            
+
             return View(result);
         }
 
@@ -89,10 +89,10 @@ namespace Epoint.Web.Admin.Areas.PB.Controllers
         //
         // GET: /PB/BiaoDuan/Edit/5
 
-        public ActionResult Edit(string guid)
+        public ActionResult Edit(int id)
         {
-            var model = iPingBiao_BiaoDuan.GetByID(guid);
-            return View();
+            var model = iPingBiao_BiaoDuan.GetByID(id);
+            return View(model);
         }
 
         //
@@ -103,9 +103,12 @@ namespace Epoint.Web.Admin.Areas.PB.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                var model = iPingBiao_BiaoDuan.GetByID(id);
+                this.TryUpdateModel<PingBiao_BiaoDuan>(model);
 
-                return RedirectToAction("Index");
+                iPingBiao_BiaoDuan.Modify(model);
+
+                return this.RefreshParent();
             }
             catch
             {

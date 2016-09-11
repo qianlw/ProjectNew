@@ -1289,6 +1289,7 @@
     <Content Include="Areas\PB\Views\Web.config" />
     <Content Include="Areas\PB\Views\BiaoDuan\Index.cshtml" />
     <Content Include="Areas\PB\Views\BiaoDuan\Edit.cshtml" />
+    <Content Include="Areas\PB\Views\BiaoDuan\Test.cshtml" />
     <None Include="Assets\bootstrap-colorpicker\less\colorpicker.less" />
     <None Include="Assets\bootstrap-datepicker\less\datepicker.less" />
     <None Include="Assets\bootstrap-daterangepicker\README.md" />

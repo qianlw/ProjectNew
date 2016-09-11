@@ -9,6 +9,7 @@
 @section PageSpecificStyleSheetIncludes{
 }
 @section PageSpecificJavascriptIncludes{
+
 }
 @section MainContent{
     <div class="portlet-body form-horizontal form-bordered form-row-stripped">
@@ -30,10 +31,41 @@
             </div>
 
             <div class="control-group">
-                <label class="control-label"><span class="required">*</span>开标日期：</label>
+                <label class="control-label">建设单位：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.JianSheDanWei, new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.JianSheDanWei)</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>开标时间：</label>
                 <div class="controls">
                     @Html.TextBoxFor(m => m.KaiBiaoDate, new { @class = "m-wrap" })
                     <span class="help-inline">@Html.ValidationMessageFor(m => m.KaiBiaoDate)</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">开标地点：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.KaiBiaoAddress, new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.KaiBiaoAddress)</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">允许解密时长：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.JiemiMiute,"60", new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.JiemiMiute)</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">备注：</label>
+                <div class="controls">
+                    @Html.TextAreaFor(m => m.BeiZhu, new { @class = "m-wrap" })
                 </div>
             </div>
 
