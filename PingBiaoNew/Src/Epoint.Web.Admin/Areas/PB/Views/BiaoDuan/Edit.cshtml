@@ -1,5 +1,6 @@
 ﻿@using Epoint.Framework.Contract
 @using Epoint.Framework.Web.Controls
+@using Epoint.Framework.Utility
 @using Epoint.PingBiao.Contract
 @using Epoint.Web
 @model PingBiao_BiaoDuan
@@ -9,6 +10,9 @@
 @section PageSpecificStyleSheetIncludes{
 }
 @section PageSpecificJavascriptIncludes{
+<script type="text/javascript">
+    $("#KaiBiaoDate").datepicker();
+</script>
 
 }
 @section MainContent{
@@ -41,7 +45,7 @@
             <div class="control-group">
                 <label class="control-label"><span class="required">*</span>开标时间：</label>
                 <div class="controls">
-                    @Html.TextBoxFor(m => m.KaiBiaoDate, new { @class = "m-wrap" })
+                    @Html.TextBox("KaiBiaoDate", Model.KaiBiaoDate.ToCnDataString(), new { @class = "m-wrap" })
                     <span class="help-inline">@Html.ValidationMessageFor(m => m.KaiBiaoDate)</span>
                 </div>
             </div>
