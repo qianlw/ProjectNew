@@ -20,7 +20,7 @@ namespace Epoint.PingBiao.IService
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        int Add(T model);
+        void Add(T model);
         #endregion
 
         #region 2.0 根据 id 删除 +int Del(T model)
@@ -29,7 +29,7 @@ namespace Epoint.PingBiao.IService
         /// </summary>
         /// <param name="model">包含要删除id的对象</param>
         /// <returns></returns>
-        int Del(T model);
+        void Del(T model);
         #endregion
 
         #region 3.0 根据条件删除 +int DelBy(Expression<Func<T, bool>> delWhere)
@@ -38,7 +38,7 @@ namespace Epoint.PingBiao.IService
         /// </summary>
         /// <param name="delWhere"></param>
         /// <returns></returns>
-        int DelBy(Expression<Func<T, bool>> delWhere);
+        void DelBy(Expression<Func<T, bool>> delWhere);
         #endregion
 
         #region 4.0 修改 +int Modify(T model, params string[] proNames)
@@ -50,7 +50,7 @@ namespace Epoint.PingBiao.IService
         /// <param name="model">要修改的实体对象</param>
         /// <param name="proNames">要修改的 属性 名称</param>
         /// <returns></returns>
-        int Modify(T model, params string[] proNames);
+        void Modify(T model, params string[] proNames);
         #endregion
 
         #region 4.0 批量修改 +int Modify(T model, Expression<Func<T, bool>> whereLambda, params string[] modifiedProNames)
@@ -61,7 +61,7 @@ namespace Epoint.PingBiao.IService
         /// <param name="whereLambda">查询条件</param>
         /// <param name="proNames">要修改的 属性 名称</param>
         /// <returns></returns>
-        int ModifyBy(T model, Expression<Func<T, bool>> whereLambda, params string[] modifiedProNames);        
+        void ModifyBy(T model, Expression<Func<T, bool>> whereLambda, params string[] modifiedProNames);        
         #endregion
 
         #region 5.0 根据条件查询 +List<T> GetListBy(Expression<Func<T,bool>> whereLambda)
@@ -105,6 +105,7 @@ namespace Epoint.PingBiao.IService
         IQueryable<T> GetPagedList<TKey>(int pageIndex, int pageSize, Expression<Func<T, bool>> whereLambda, Expression<Func<T, TKey>> orderBy);
         #endregion
 
+        int Commit();
 
     }
 }

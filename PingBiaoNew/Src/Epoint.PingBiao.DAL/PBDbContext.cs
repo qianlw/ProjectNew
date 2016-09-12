@@ -1792,5 +1792,6 @@ namespace Epoint.PingBiao.DAL
             //    .Property(e => e.AvgZongHeUnitPrice)
             //    .HasPrecision(18, 6);
         }
+       
     }
 }

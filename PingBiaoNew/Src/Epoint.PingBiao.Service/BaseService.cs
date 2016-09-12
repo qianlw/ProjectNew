@@ -32,10 +32,10 @@ namespace Epoint.PingBiao.Service
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public virtual int Add(T model)
+        public virtual void Add(T model)
         {
             pbDbContext.Set<T>().Add(model);
-            return pbDbContext.SaveChanges();//保存成功后，会将自增的id设置给 model的 主键属性，并返回受影响行数
+            //return pbDbContext.SaveChanges();//保存成功后，会将自增的id设置给 model的 主键属性，并返回受影响行数
         }
         #endregion
 
@@ -45,11 +45,11 @@ namespace Epoint.PingBiao.Service
         /// </summary>
         /// <param name="model">包含要删除id的对象</param>
         /// <returns></returns>
-        public virtual int Del(T model)
+        public virtual void Del(T model)
         {
             pbDbContext.Set<T>().Attach(model);
             pbDbContext.Set<T>().Remove(model);
-            return pbDbContext.SaveChanges();
+            //return pbDbContext.SaveChanges();
         }
         #endregion
 
@@ -59,7 +59,7 @@ namespace Epoint.PingBiao.Service
         /// </summary>
         /// <param name="delWhere"></param>
         /// <returns></returns>
-        public virtual int DelBy(Expression<Func<T, bool>> delWhere)
+        public virtual void DelBy(Expression<Func<T, bool>> delWhere)
         {
             //3.1查询要删除的数据
             List<T> listDeleting = pbDbContext.Set<T>().Where(delWhere).ToList();
@@ -70,7 +70,7 @@ namespace Epoint.PingBiao.Service
                 pbDbContext.Set<T>().Remove(u);//标识为 删除 状态
             });
             //3.3一次性 生成sql语句到数据库执行删除
-            return pbDbContext.SaveChanges();
+            //return pbDbContext.SaveChanges();
         }
         #endregion
 
@@ -83,7 +83,7 @@ namespace Epoint.PingBiao.Service
         /// <param name="model">要修改的实体对象</param>
         /// <param name="proNames">要修改的 属性 名称</param>
         /// <returns></returns>
-        public virtual int Modify(T model, params string[] proNames)
+        public virtual void Modify(T model, params string[] proNames)
         {
             //4.1将 对象 添加到 EF中
             DbEntityEntry entry = pbDbContext.Entry<T>(model);
@@ -96,7 +96,7 @@ namespace Epoint.PingBiao.Service
             //    entry.Property(proName).IsModified = true;
             //}
             //4.4一次性 生成sql语句到数据库执行
-            return pbDbContext.SaveChanges();
+            //return pbDbContext.SaveChanges();
         }
         #endregion
 
@@ -108,7 +108,7 @@ namespace Epoint.PingBiao.Service
         /// <param name="whereLambda">查询条件</param>
         /// <param name="proNames">要修改的 属性 名称</param>
         /// <returns></returns>
-        public virtual int ModifyBy(T model, Expression<Func<T, bool>> whereLambda, params string[] modifiedProNames)
+        public virtual void ModifyBy(T model, Expression<Func<T, bool>> whereLambda, params string[] modifiedProNames)
         {
             //4.1查询要修改的数据
             List<T> listModifing = pbDbContext.Set<T>().Where(whereLambda).ToList();
@@ -148,7 +148,7 @@ namespace Epoint.PingBiao.Service
                 }
             }
             //4.4一次性 生成sql语句到数据库执行
-            return pbDbContext.SaveChanges();
+            //return pbDbContext.SaveChanges();
         }
         #endregion
 
@@ -207,7 +207,11 @@ namespace Epoint.PingBiao.Service
         #endregion       
 
         
-        
+        public int Commit()
+        {
+            return pbDbContext.SaveChanges();
+        }
+
 
     }
 }

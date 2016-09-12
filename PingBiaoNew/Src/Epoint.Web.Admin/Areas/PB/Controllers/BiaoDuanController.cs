@@ -23,28 +23,28 @@ namespace Epoint.Web.Admin.Areas.PB.Controllers
         public ActionResult Index(BiaoDuanRequest request, bool? type)
         {
             //原方法实现
-            List<PingBiao_BiaoDuan> result = iPingBiao_BiaoDuan.GetListBy(p=>p.BiaoDuanName!=null).ToList();
+            var result = iPingBiao_BiaoDuan.GetListBy(p => p.BiaoDuanName != null);
             
             //var whereLambda = string.Empty;
             if (type == true)
             {
-                result = iPingBiao_BiaoDuan.GetListBy(p => p.KaiBiaoDate.Value.Year <= DateTime.Now.Year && p.KaiBiaoDate.Value.Month <= DateTime.Now.Month && p.KaiBiaoDate.Value.Day < DateTime.Now.Day, m => m.KaiBiaoDate).ToPagedList(request.PageIndex, request.PageSize);                
+                result = iPingBiao_BiaoDuan.GetListBy(p => p.KaiBiaoDate.Value.Year <= DateTime.Now.Year && p.KaiBiaoDate.Value.Month <= DateTime.Now.Month && p.KaiBiaoDate.Value.Day < DateTime.Now.Day, m => m.KaiBiaoDate);                
             }
             else if (type == false)
             {
-                result = iPingBiao_BiaoDuan.GetListBy(p => p.KaiBiaoDate.Value.Year >= DateTime.Now.Year && p.KaiBiaoDate.Value.Month >= DateTime.Now.Month && p.KaiBiaoDate.Value.Day > DateTime.Now.Day, m => m.KaiBiaoDate).ToPagedList(request.PageIndex, request.PageSize);
+                result = iPingBiao_BiaoDuan.GetListBy(p => p.KaiBiaoDate.Value.Year >= DateTime.Now.Year && p.KaiBiaoDate.Value.Month >= DateTime.Now.Month && p.KaiBiaoDate.Value.Day > DateTime.Now.Day, m => m.KaiBiaoDate);
             }
             else
             {
-                result = iPingBiao_BiaoDuan.GetListBy(p => p.KaiBiaoDate.Value.Year == DateTime.Now.Year && p.KaiBiaoDate.Value.Month == DateTime.Now.Month && p.KaiBiaoDate.Value.Day == DateTime.Now.Day, m => m.KaiBiaoDate).ToPagedList(request.PageIndex, request.PageSize);
+                result = iPingBiao_BiaoDuan.GetListBy(p => p.KaiBiaoDate.Value.Year == DateTime.Now.Year && p.KaiBiaoDate.Value.Month == DateTime.Now.Month && p.KaiBiaoDate.Value.Day == DateTime.Now.Day, m => m.KaiBiaoDate);
 
             }
             if (!string.IsNullOrEmpty(request.BiaoDuanName))
             {
-                result = result.Where(p => p.BiaoDuanGuid.Contains(request.BiaoDuanName)).ToList();
+                result = result.Where(p => p.BiaoDuanName.Contains(request.BiaoDuanName));
             }
-
-            return View(result);
+            var list = result.ToPagedList(request.PageIndex, request.PageSize);
+            return View(list);
         }
 
         //
@@ -77,6 +77,7 @@ namespace Epoint.Web.Admin.Areas.PB.Controllers
                 this.TryUpdateModel<PingBiao_BiaoDuan>(model);
 
                 iPingBiao_BiaoDuan.Add(model);
+                iPingBiao_BiaoDuan.Commit();
 
                 return this.RefreshParent();
             }
@@ -107,6 +108,7 @@ namespace Epoint.Web.Admin.Areas.PB.Controllers
                 this.TryUpdateModel<PingBiao_BiaoDuan>(model);
 
                 iPingBiao_BiaoDuan.Modify(model);
+                iPingBiao_BiaoDuan.Commit();
 
                 return this.RefreshParent();
             }
@@ -128,13 +130,13 @@ namespace Epoint.Web.Admin.Areas.PB.Controllers
         // POST: /PB/BiaoDuan/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(List<int> ids,bool? type,string BiaoDuanName)
         {
             try
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                iPingBiao_BiaoDuan.DelBy(u => ids.Contains(u.ID));
+                iPingBiao_BiaoDuan.Commit();
+                return RedirectToAction("Index", new { type = type, BiaoDuanName = BiaoDuanName });
             }
             catch
             {
