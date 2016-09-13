@@ -22,32 +22,32 @@
             <li class="dropdown" id="header_notification_bar" style="margin-right:200px;width:400px;">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <div>
-                        当前标段：
+                        当前标段：@Session["BiaoDuanName"]
                     </div>
                 </a>
                 <ul class="dropdown-menu extended notification">
                     <li>
-                        <p>You have 14 new notifications</p>
+                        <p>标段信息</p>
                     </li>
                     <li>
                         <a href="#">
                             <span class="label label-success"><i class="icon-plus"></i></span>
-                            New user registered.
-                            <span class="time">Just now</span>
+                            标段名称：
+                            <span class="time">@Session["BiaoDuanName"]</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
                             <span class="label label-important"><i class="icon-bolt"></i></span>
-                            Server #12 overloaded.
-                            <span class="time">15 mins</span>
+                            标段编号：
+                            <span class="time">@Session["BiaoDuanNo"]</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
                             <span class="label label-warning"><i class="icon-bell"></i></span>
-                            Server #2 not respoding.
-                            <span class="time">22 mins</span>
+                            唯一标识符：
+                            <span class="time">@Session["BiaoDuanGuid"]</span>
                         </a>
                     </li>
                     <li>

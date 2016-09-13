@@ -143,5 +143,17 @@ namespace Epoint.Web.Admin.Areas.PB.Controllers
                 return View();
             }
         }
+
+        public ActionResult EnterBiaoDuan(string guid)
+        {
+            var biaoDuanList = iPingBiao_BiaoDuan.GetListBy(p => p.BiaoDuanGuid == guid).FirstOrDefault();
+            if (biaoDuanList != null)
+            {
+                Session["BiaoDuanGuid"] = guid;
+                Session["BiaoDuanName"] = biaoDuanList.BiaoDuanName;
+                Session["BiaoDuanNo"] = biaoDuanList.BiaoDuanNo;
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
