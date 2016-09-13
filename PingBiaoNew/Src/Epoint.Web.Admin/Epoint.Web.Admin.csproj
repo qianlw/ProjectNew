@@ -86,6 +86,7 @@
     <Compile Include="Areas\PB\Controllers\BiaoDuanController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Areas\PB\Controllers\DanWeiController.cs" />
     <Compile Include="Areas\PB\PBAreaRegistration.cs" />
     <Compile Include="Common\AdminCookieContext.cs" />
     <Compile Include="Common\AdminUserContext.cs" />

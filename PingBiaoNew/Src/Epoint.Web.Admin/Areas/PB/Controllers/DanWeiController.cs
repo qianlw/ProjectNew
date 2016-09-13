@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Epoint.PingBiao.IService;
+using Epoint.PingBiao.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,7 @@ namespace Epoint.Web.Admin.Areas.PB.Controllers
 {
     public class DanWeiController : Controller
     {
+        IPingBiao_KaiBiaoTouBiao idanwei = new PingBiao_KaiBiaoTouBiaoService();
         //
         // GET: /PB/DanWei/
 
