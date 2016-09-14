@@ -14,6 +14,19 @@ namespace Epoint.Web.Admin.Common
 {
     public abstract class AdminControllerBase : ControllerBase
     {
+        public string BiaoDuanGuid
+        {            
+            get
+            {
+                string str = string.Empty;
+                if(Session["BiaoDuanGuid"]!=null)
+                {
+                    str = Session["BiaoDuanGuid"].ToString();
+                }
+                return str;
+            }
+        }
+
         public AdminCookieContext CookieContext
         {
             get

@@ -1,5 +1,7 @@
-﻿using Epoint.PingBiao.IService;
+﻿using Epoint.Framework.Contract;
+using Epoint.PingBiao.IService;
 using Epoint.PingBiao.Service;
+using Epoint.Web.Admin.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +10,17 @@ using System.Web.Mvc;
 
 namespace Epoint.Web.Admin.Areas.PB.Controllers
 {
-    public class DanWeiController : Controller
+    public class DanWeiController : AdminControllerBase
     {
         IPingBiao_KaiBiaoTouBiao idanwei = new PingBiao_KaiBiaoTouBiaoService();
+        IPingBiao_BiaoDuan ibiaoDuan = new PingBiao_BiaoDuanService();
         //
         // GET: /PB/DanWei/
 
-        public ActionResult Index()
+        public ActionResult Index(Request request)
         {
-            return View();
+            var result = idanwei.GetListBy(p => p.BiaoDuanGuid == BiaoDuanGuid, m => m.ID).ToPagedList(request.PageIndex, request.PageSize);
+            return View(result);
         }
 
         //
@@ -103,6 +107,17 @@ namespace Epoint.Web.Admin.Areas.PB.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult OpenKB()
+        {
+            ViewData["KaiBiaoTime"] = ibiaoDuan.GetListBy(p => p.BiaoDuanGuid == BiaoDuanGuid).FirstOrDefault().KaiBiaoDate;
+            return View("KBBeiJing");
+        }
+
+        public string GetKaiBiaoDate()
+        {
+            return ibiaoDuan.GetListBy(p => p.BiaoDuanGuid == BiaoDuanGuid).FirstOrDefault().KaiBiaoDate.ToString();
         }
     }
 }
