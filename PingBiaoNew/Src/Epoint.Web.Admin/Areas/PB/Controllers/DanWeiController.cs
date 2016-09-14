@@ -20,6 +20,9 @@ namespace Epoint.Web.Admin.Areas.PB.Controllers
         public ActionResult Index(Request request)
         {
             var result = idanwei.GetListBy(p => p.BiaoDuanGuid == BiaoDuanGuid, m => m.ID).ToPagedList(request.PageIndex, request.PageSize);
+
+            var biaoDuanInfo = ibiaoDuan.GetListBy(p => p.BiaoDuanGuid == BiaoDuanGuid).ToList();
+            ViewData["biaoDuanInfo"] = biaoDuanInfo;
             return View(result);
         }
 
@@ -115,9 +118,5 @@ namespace Epoint.Web.Admin.Areas.PB.Controllers
             return View("KBBeiJing");
         }
 
-        public string GetKaiBiaoDate()
-        {
-            return ibiaoDuan.GetListBy(p => p.BiaoDuanGuid == BiaoDuanGuid).FirstOrDefault().KaiBiaoDate.ToString();
-        }
     }
 }

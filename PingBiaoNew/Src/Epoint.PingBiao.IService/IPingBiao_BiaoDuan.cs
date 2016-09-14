@@ -13,7 +13,7 @@ namespace Epoint.PingBiao.IService
 	/// </summary>
 	public interface IPingBiao_BiaoDuan : IBaseService<PingBiao_BiaoDuan>
 	{
-		
+        PingBiao_BiaoDuan GetByBiaoDuanGuid(string BiaoDuanGuid);
 	} 
 	
 }
