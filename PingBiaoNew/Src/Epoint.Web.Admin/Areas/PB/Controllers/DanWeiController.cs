@@ -1,4 +1,5 @@
 ﻿using Epoint.Framework.Contract;
+using Epoint.PingBiao.Contract;
 using Epoint.PingBiao.IService;
 using Epoint.PingBiao.Service;
 using Epoint.Web.Admin.Common;
@@ -21,7 +22,7 @@ namespace Epoint.Web.Admin.Areas.PB.Controllers
         {
             var result = idanwei.GetListBy(p => p.BiaoDuanGuid == BiaoDuanGuid, m => m.ID).ToPagedList(request.PageIndex, request.PageSize);
 
-            var biaoDuanInfo = ibiaoDuan.GetListBy(p => p.BiaoDuanGuid == BiaoDuanGuid).ToList();
+            var biaoDuanInfo = ibiaoDuan.GetByBiaoDuanGuid(BiaoDuanGuid);
             ViewData["biaoDuanInfo"] = biaoDuanInfo;
             return View(result);
         }
@@ -38,7 +39,7 @@ namespace Epoint.Web.Admin.Areas.PB.Controllers
         // GET: /PB/DanWei/Create
 
         public ActionResult Create()
-        {
+        {            
             return View();
         }
 
@@ -50,8 +51,13 @@ namespace Epoint.Web.Admin.Areas.PB.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
-
+                PingBiao_KaiBiaoTouBiao kaibiaotb = new PingBiao_KaiBiaoTouBiao();
+                kaibiaotb.DanWeiName = collection["DanWeiName"];
+                kaibiaotb.RowGuid=Guid.NewGuid().ToString();
+                kaibiaotb.DanWeiGuid = Guid.NewGuid().ToString();
+                kaibiaotb.BiaoDuanGuid = BiaoDuanGuid;
+                idanwei.Add(kaibiaotb);
+                idanwei.Commit();
                 return RedirectToAction("Index");
             }
             catch

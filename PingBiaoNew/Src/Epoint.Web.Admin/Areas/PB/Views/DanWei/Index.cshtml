@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="span8">
-        @using (Html.BeginForm(null, null, null, FormMethod.Get, new { id = "search" }))
+        @using (Html.BeginForm("Create", "DanWei", null, FormMethod.Post, new { id = "BtnAdd" }))
         {
             <div class="dataTables_filter">
                 <label>
@@ -23,7 +23,7 @@
                 </label>
                 <label>
                     <span>单位名称：</span>
-                    @Html.TextBox("Name", null, new { @class = "m-wrap big" })
+                    @Html.TextBox("DanWeiName", null, new { @class = "m-wrap big" })
                 </label>
             </div>
         }
@@ -32,17 +32,17 @@
 
 @using (Html.BeginForm("Delete", "Project", FormMethod.Post, new { id = "mainForm" }))
 {
-    var listbiaoDuanInfo = ViewData["BiaoDuanInfo"] as PingBiao_BiaoDuan;
+    var listbiaoDuanInfo = ViewData["biaoDuanInfo"] as PingBiao_BiaoDuan;
     <table class="table table-bordered ">
         <tbody>
             <tr>
                 <td>项目编号：</td>
                 <td>@listbiaoDuanInfo.BiaoDuanNo</td>
-                <td>项目名称</td>
+                <td>项目名称：</td>
                 <td>@listbiaoDuanInfo.BiaoDuanName</td>
             </tr>
             <tr>
-                <td>AAD</td>
+                <td>建设单位</td>
                 <td>ARDENT LEISURE GROUP</td>
                 <td>AAC</td>
                 <td>AUSTRALIAN AGRICULTURAL COMPANY LIMITED.</td>
@@ -78,6 +78,15 @@
                 <tr>
                     <td>
                         <input type="checkbox" class="checkboxes" name='ids' value='@m.ID' />
+                    </td>
+                    <td>
+                        @m.DanWeiName
+                    </td>
+                    <td>
+                        @m.DanWeiName
+                    </td>
+                    <td>
+                        @m.DanWeiName
                     </td>
                     <td>
                         @m.DanWeiName
