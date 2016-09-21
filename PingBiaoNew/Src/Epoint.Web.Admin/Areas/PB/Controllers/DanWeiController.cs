@@ -104,12 +104,12 @@ namespace Epoint.Web.Admin.Areas.PB.Controllers
         // POST: /PB/DanWei/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(List<int> ids)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                idanwei.DelBy(u => ids.Contains(u.ID));
+                idanwei.Commit();
                 return RedirectToAction("Index");
             }
             catch
